@@ -513,10 +513,10 @@ namespace BudgetManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public AccountRow AddAccountRow(int AccountID, string Name, int Type) {
+            public AccountRow AddAccountRow(string Name, int Type) {
                 AccountRow rowAccountRow = ((AccountRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        AccountID,
+                        null,
                         Name,
                         Type};
                 rowAccountRow.ItemArray = columnValuesArray;
@@ -564,11 +564,16 @@ namespace BudgetManager {
                 base.Columns.Add(this.columnType);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnAccountID}, true));
+                this.columnAccountID.AutoIncrement = true;
+                this.columnAccountID.AutoIncrementSeed = -1;
+                this.columnAccountID.AutoIncrementStep = -1;
                 this.columnAccountID.AllowDBNull = false;
+                this.columnAccountID.ReadOnly = true;
                 this.columnAccountID.Unique = true;
                 this.columnName.AllowDBNull = false;
                 this.columnName.MaxLength = 2147483647;
                 this.columnType.AllowDBNull = false;
+                this.columnType.DefaultValue = ((int)(0));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -792,10 +797,10 @@ namespace BudgetManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BudgetRow AddBudgetRow(int BudgetID, System.DateTime Month) {
+            public BudgetRow AddBudgetRow(System.DateTime Month) {
                 BudgetRow rowBudgetRow = ((BudgetRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        BudgetID,
+                        null,
                         Month};
                 rowBudgetRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowBudgetRow);
@@ -839,7 +844,11 @@ namespace BudgetManager {
                 base.Columns.Add(this.columnMonth);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnBudgetID}, true));
+                this.columnBudgetID.AutoIncrement = true;
+                this.columnBudgetID.AutoIncrementSeed = -1;
+                this.columnBudgetID.AutoIncrementStep = -1;
                 this.columnBudgetID.AllowDBNull = false;
+                this.columnBudgetID.ReadOnly = true;
                 this.columnBudgetID.Unique = true;
                 this.columnMonth.AllowDBNull = false;
             }
@@ -1085,10 +1094,10 @@ namespace BudgetManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GoalRow AddGoalRow(int GoalID, BudgetRow parentBudgetRowByBudget_Goal, int Category, double Amount) {
+            public GoalRow AddGoalRow(BudgetRow parentBudgetRowByBudget_Goal, int Category, double Amount) {
                 GoalRow rowGoalRow = ((GoalRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        GoalID,
+                        null,
                         null,
                         Category,
                         Amount};
@@ -1143,11 +1152,18 @@ namespace BudgetManager {
                 base.Columns.Add(this.columnAmount);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnGoalID}, true));
+                this.columnGoalID.AutoIncrement = true;
+                this.columnGoalID.AutoIncrementSeed = -1;
+                this.columnGoalID.AutoIncrementStep = -1;
                 this.columnGoalID.AllowDBNull = false;
+                this.columnGoalID.ReadOnly = true;
                 this.columnGoalID.Unique = true;
                 this.columnBudgetID.AllowDBNull = false;
+                this.columnBudgetID.DefaultValue = ((int)(1));
                 this.columnCategory.AllowDBNull = false;
+                this.columnCategory.DefaultValue = ((int)(0));
                 this.columnAmount.AllowDBNull = false;
+                this.columnAmount.DefaultValue = ((double)(0D));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1411,10 +1427,10 @@ namespace BudgetManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TransactionRow AddTransactionRow(int TransactionID, AccountRow parentAccountRowByAccount_Transaction, System.DateTime DateTime, int Category, string Memo, double Amount) {
+            public TransactionRow AddTransactionRow(AccountRow parentAccountRowByAccount_Transaction, System.DateTime DateTime, int Category, string Memo, double Amount) {
                 TransactionRow rowTransactionRow = ((TransactionRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        TransactionID,
+                        null,
                         null,
                         DateTime,
                         Category,
@@ -1477,12 +1493,23 @@ namespace BudgetManager {
                 base.Columns.Add(this.columnAmount);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnTransactionID}, true));
+                this.columnTransactionID.AutoIncrement = true;
+                this.columnTransactionID.AutoIncrementSeed = -1;
+                this.columnTransactionID.AutoIncrementStep = -1;
                 this.columnTransactionID.AllowDBNull = false;
+                this.columnTransactionID.ReadOnly = true;
                 this.columnTransactionID.Unique = true;
                 this.columnAccountID.AllowDBNull = false;
+                this.columnAccountID.DefaultValue = ((int)(1));
                 this.columnDateTime.AllowDBNull = false;
+                this.columnDateTime.ReadOnly = true;
+                this.columnCategory.AllowDBNull = false;
+                this.columnCategory.DefaultValue = ((int)(0));
+                this.columnMemo.AllowDBNull = false;
+                this.columnMemo.DefaultValue = ((string)(""));
                 this.columnMemo.MaxLength = 2147483647;
                 this.columnAmount.AllowDBNull = false;
+                this.columnAmount.DefaultValue = ((double)(0D));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1837,12 +1864,7 @@ namespace BudgetManager {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int Category {
                 get {
-                    try {
-                        return ((int)(this[this.tableTransaction.CategoryColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Category\' in table \'Transaction\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableTransaction.CategoryColumn]));
                 }
                 set {
                     this[this.tableTransaction.CategoryColumn] = value;
@@ -1853,12 +1875,7 @@ namespace BudgetManager {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Memo {
                 get {
-                    try {
-                        return ((string)(this[this.tableTransaction.MemoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Memo\' in table \'Transaction\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableTransaction.MemoColumn]));
                 }
                 set {
                     this[this.tableTransaction.MemoColumn] = value;
@@ -1885,30 +1902,6 @@ namespace BudgetManager {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["Account_Transaction"]);
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCategoryNull() {
-                return this.IsNull(this.tableTransaction.CategoryColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCategoryNull() {
-                this[this.tableTransaction.CategoryColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsMemoNull() {
-                return this.IsNull(this.tableTransaction.MemoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetMemoNull() {
-                this[this.tableTransaction.MemoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3230,18 +3223,12 @@ SELECT TransactionID, AccountID, DateTime, Category, Memo, Amount FROM [Transact
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_TransactionID, int Original_AccountID, System.DateTime Original_DateTime, global::System.Nullable<int> Original_Category, double Original_Amount) {
+        public virtual int Delete(int Original_TransactionID, int Original_AccountID, System.DateTime Original_DateTime, int Original_Category, double Original_Amount) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_TransactionID));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_AccountID));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((System.DateTime)(Original_DateTime));
-            if ((Original_Category.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_Category.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_Category));
             this.Adapter.DeleteCommand.Parameters[5].Value = ((double)(Original_Amount));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3263,18 +3250,13 @@ SELECT TransactionID, AccountID, DateTime, Category, Memo, Amount FROM [Transact
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int TransactionID, int AccountID, System.DateTime DateTime, global::System.Nullable<int> Category, string Memo, double Amount) {
+        public virtual int Insert(int TransactionID, int AccountID, System.DateTime DateTime, int Category, string Memo, double Amount) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(TransactionID));
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(AccountID));
             this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(DateTime));
-            if ((Category.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(Category.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(Category));
             if ((Memo == null)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Memo");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Memo));
@@ -3300,18 +3282,13 @@ SELECT TransactionID, AccountID, DateTime, Category, Memo, Amount FROM [Transact
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int TransactionID, int AccountID, System.DateTime DateTime, global::System.Nullable<int> Category, string Memo, double Amount, int Original_TransactionID, int Original_AccountID, System.DateTime Original_DateTime, global::System.Nullable<int> Original_Category, double Original_Amount) {
+        public virtual int Update(int TransactionID, int AccountID, System.DateTime DateTime, int Category, string Memo, double Amount, int Original_TransactionID, int Original_AccountID, System.DateTime Original_DateTime, int Original_Category, double Original_Amount) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(TransactionID));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(AccountID));
             this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(DateTime));
-            if ((Category.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Category.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Category));
             if ((Memo == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Memo");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Memo));
@@ -3320,14 +3297,8 @@ SELECT TransactionID, AccountID, DateTime, Category, Memo, Amount FROM [Transact
             this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_TransactionID));
             this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_AccountID));
             this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Original_DateTime));
-            if ((Original_Category.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_Category.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_Category));
             this.Adapter.UpdateCommand.Parameters[11].Value = ((double)(Original_Amount));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3349,7 +3320,7 @@ SELECT TransactionID, AccountID, DateTime, Category, Memo, Amount FROM [Transact
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int AccountID, System.DateTime DateTime, global::System.Nullable<int> Category, string Memo, double Amount, int Original_TransactionID, int Original_AccountID, System.DateTime Original_DateTime, global::System.Nullable<int> Original_Category, double Original_Amount) {
+        public virtual int Update(int AccountID, System.DateTime DateTime, int Category, string Memo, double Amount, int Original_TransactionID, int Original_AccountID, System.DateTime Original_DateTime, int Original_Category, double Original_Amount) {
             return this.Update(Original_TransactionID, AccountID, DateTime, Category, Memo, Amount, Original_TransactionID, Original_AccountID, Original_DateTime, Original_Category, Original_Amount);
         }
     }
