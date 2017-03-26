@@ -565,8 +565,7 @@ namespace BudgetManager {
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnAccountID}, true));
                 this.columnAccountID.AutoIncrement = true;
-                this.columnAccountID.AutoIncrementSeed = -1;
-                this.columnAccountID.AutoIncrementStep = -1;
+                this.columnAccountID.AutoIncrementSeed = 1;
                 this.columnAccountID.AllowDBNull = false;
                 this.columnAccountID.ReadOnly = true;
                 this.columnAccountID.Unique = true;
@@ -845,8 +844,7 @@ namespace BudgetManager {
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnBudgetID}, true));
                 this.columnBudgetID.AutoIncrement = true;
-                this.columnBudgetID.AutoIncrementSeed = -1;
-                this.columnBudgetID.AutoIncrementStep = -1;
+                this.columnBudgetID.AutoIncrementSeed = 1;
                 this.columnBudgetID.AllowDBNull = false;
                 this.columnBudgetID.ReadOnly = true;
                 this.columnBudgetID.Unique = true;
@@ -1153,8 +1151,7 @@ namespace BudgetManager {
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnGoalID}, true));
                 this.columnGoalID.AutoIncrement = true;
-                this.columnGoalID.AutoIncrementSeed = -1;
-                this.columnGoalID.AutoIncrementStep = -1;
+                this.columnGoalID.AutoIncrementSeed = 1;
                 this.columnGoalID.AllowDBNull = false;
                 this.columnGoalID.ReadOnly = true;
                 this.columnGoalID.Unique = true;
@@ -1494,8 +1491,7 @@ namespace BudgetManager {
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnTransactionID}, true));
                 this.columnTransactionID.AutoIncrement = true;
-                this.columnTransactionID.AutoIncrementSeed = -1;
-                this.columnTransactionID.AutoIncrementStep = -1;
+                this.columnTransactionID.AutoIncrementSeed = 1;
                 this.columnTransactionID.AllowDBNull = false;
                 this.columnTransactionID.ReadOnly = true;
                 this.columnTransactionID.Unique = true;
