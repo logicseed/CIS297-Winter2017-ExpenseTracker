@@ -290,21 +290,6 @@ namespace BudgetManager {
             base.Tables.Add(this.tableGoal);
             this.tableTransaction = new TransactionDataTable();
             base.Tables.Add(this.tableTransaction);
-            global::System.Data.ForeignKeyConstraint fkc;
-            fkc = new global::System.Data.ForeignKeyConstraint("Budget_Goal", new global::System.Data.DataColumn[] {
-                        this.tableBudget.BudgetIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableGoal.BudgetIDColumn});
-            this.tableGoal.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.Cascade;
-            fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("Account_Transaction", new global::System.Data.DataColumn[] {
-                        this.tableAccount.AccountIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableTransaction.AccountIDColumn});
-            this.tableTransaction.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.Cascade;
-            fkc.UpdateRule = global::System.Data.Rule.Cascade;
             this.relationBudget_Goal = new global::System.Data.DataRelation("Budget_Goal", new global::System.Data.DataColumn[] {
                         this.tableBudget.BudgetIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableGoal.BudgetIDColumn}, false);
@@ -513,7 +498,7 @@ namespace BudgetManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public AccountRow AddAccountRow(string Name, int Type) {
+            public AccountRow AddAccountRow(string Name, BudgetManager.AccountType Type) {
                 AccountRow rowAccountRow = ((AccountRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -560,7 +545,7 @@ namespace BudgetManager {
                 base.Columns.Add(this.columnAccountID);
                 this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnName);
-                this.columnType = new global::System.Data.DataColumn("Type", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnType = new global::System.Data.DataColumn("Type", typeof(global::BudgetManager.AccountType), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnType);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnAccountID}, true));
@@ -570,9 +555,9 @@ namespace BudgetManager {
                 this.columnAccountID.ReadOnly = true;
                 this.columnAccountID.Unique = true;
                 this.columnName.AllowDBNull = false;
+                this.columnName.DefaultValue = ((string)("New Account"));
                 this.columnName.MaxLength = 2147483647;
                 this.columnType.AllowDBNull = false;
-                this.columnType.DefaultValue = ((int)(0));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1092,7 +1077,7 @@ namespace BudgetManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GoalRow AddGoalRow(BudgetRow parentBudgetRowByBudget_Goal, int Category, double Amount) {
+            public GoalRow AddGoalRow(BudgetRow parentBudgetRowByBudget_Goal, BudgetManager.TransactionCategory Category, double Amount) {
                 GoalRow rowGoalRow = ((GoalRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1144,7 +1129,7 @@ namespace BudgetManager {
                 base.Columns.Add(this.columnGoalID);
                 this.columnBudgetID = new global::System.Data.DataColumn("BudgetID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBudgetID);
-                this.columnCategory = new global::System.Data.DataColumn("Category", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnCategory = new global::System.Data.DataColumn("Category", typeof(global::BudgetManager.TransactionCategory), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCategory);
                 this.columnAmount = new global::System.Data.DataColumn("Amount", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAmount);
@@ -1158,7 +1143,6 @@ namespace BudgetManager {
                 this.columnBudgetID.AllowDBNull = false;
                 this.columnBudgetID.DefaultValue = ((int)(1));
                 this.columnCategory.AllowDBNull = false;
-                this.columnCategory.DefaultValue = ((int)(0));
                 this.columnAmount.AllowDBNull = false;
                 this.columnAmount.DefaultValue = ((double)(0D));
             }
@@ -1298,13 +1282,13 @@ namespace BudgetManager {
             
             private global::System.Data.DataColumn columnAccountID;
             
-            private global::System.Data.DataColumn columnDateTime;
-            
             private global::System.Data.DataColumn columnCategory;
             
             private global::System.Data.DataColumn columnMemo;
             
             private global::System.Data.DataColumn columnAmount;
+            
+            private global::System.Data.DataColumn columnDate;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1357,14 +1341,6 @@ namespace BudgetManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DateTimeColumn {
-                get {
-                    return this.columnDateTime;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn CategoryColumn {
                 get {
                     return this.columnCategory;
@@ -1384,6 +1360,14 @@ namespace BudgetManager {
             public global::System.Data.DataColumn AmountColumn {
                 get {
                     return this.columnAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DateColumn {
+                get {
+                    return this.columnDate;
                 }
             }
             
@@ -1424,15 +1408,15 @@ namespace BudgetManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public TransactionRow AddTransactionRow(AccountRow parentAccountRowByAccount_Transaction, System.DateTime DateTime, int Category, string Memo, double Amount) {
+            public TransactionRow AddTransactionRow(AccountRow parentAccountRowByAccount_Transaction, BudgetManager.TransactionCategory Category, string Memo, double Amount, System.DateTime Date) {
                 TransactionRow rowTransactionRow = ((TransactionRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
-                        DateTime,
                         Category,
                         Memo,
-                        Amount};
+                        Amount,
+                        Date};
                 if ((parentAccountRowByAccount_Transaction != null)) {
                     columnValuesArray[1] = parentAccountRowByAccount_Transaction[0];
                 }
@@ -1467,10 +1451,10 @@ namespace BudgetManager {
             internal void InitVars() {
                 this.columnTransactionID = base.Columns["TransactionID"];
                 this.columnAccountID = base.Columns["AccountID"];
-                this.columnDateTime = base.Columns["DateTime"];
                 this.columnCategory = base.Columns["Category"];
                 this.columnMemo = base.Columns["Memo"];
                 this.columnAmount = base.Columns["Amount"];
+                this.columnDate = base.Columns["Date"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1480,14 +1464,14 @@ namespace BudgetManager {
                 base.Columns.Add(this.columnTransactionID);
                 this.columnAccountID = new global::System.Data.DataColumn("AccountID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAccountID);
-                this.columnDateTime = new global::System.Data.DataColumn("DateTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDateTime);
-                this.columnCategory = new global::System.Data.DataColumn("Category", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnCategory = new global::System.Data.DataColumn("Category", typeof(global::BudgetManager.TransactionCategory), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCategory);
                 this.columnMemo = new global::System.Data.DataColumn("Memo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMemo);
                 this.columnAmount = new global::System.Data.DataColumn("Amount", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAmount);
+                this.columnDate = new global::System.Data.DataColumn("Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDate);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnTransactionID}, true));
                 this.columnTransactionID.AutoIncrement = true;
@@ -1497,15 +1481,12 @@ namespace BudgetManager {
                 this.columnTransactionID.Unique = true;
                 this.columnAccountID.AllowDBNull = false;
                 this.columnAccountID.DefaultValue = ((int)(1));
-                this.columnDateTime.AllowDBNull = false;
-                this.columnDateTime.ReadOnly = true;
                 this.columnCategory.AllowDBNull = false;
-                this.columnCategory.DefaultValue = ((int)(0));
-                this.columnMemo.AllowDBNull = false;
-                this.columnMemo.DefaultValue = ((string)(""));
+                this.columnMemo.DefaultValue = ((string)("No memo"));
                 this.columnMemo.MaxLength = 2147483647;
                 this.columnAmount.AllowDBNull = false;
                 this.columnAmount.DefaultValue = ((double)(0D));
+                this.columnDate.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1670,9 +1651,9 @@ namespace BudgetManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Type {
+            public BudgetManager.AccountType Type {
                 get {
-                    return ((int)(this[this.tableAccount.TypeColumn]));
+                    return ((global::BudgetManager.AccountType)(this[this.tableAccount.TypeColumn]));
                 }
                 set {
                     this[this.tableAccount.TypeColumn] = value;
@@ -1777,9 +1758,9 @@ namespace BudgetManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Category {
+            public BudgetManager.TransactionCategory Category {
                 get {
-                    return ((int)(this[this.tableGoal.CategoryColumn]));
+                    return ((global::BudgetManager.TransactionCategory)(this[this.tableGoal.CategoryColumn]));
                 }
                 set {
                     this[this.tableGoal.CategoryColumn] = value;
@@ -1847,20 +1828,9 @@ namespace BudgetManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime DateTime {
+            public BudgetManager.TransactionCategory Category {
                 get {
-                    return ((global::System.DateTime)(this[this.tableTransaction.DateTimeColumn]));
-                }
-                set {
-                    this[this.tableTransaction.DateTimeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Category {
-                get {
-                    return ((int)(this[this.tableTransaction.CategoryColumn]));
+                    return ((global::BudgetManager.TransactionCategory)(this[this.tableTransaction.CategoryColumn]));
                 }
                 set {
                     this[this.tableTransaction.CategoryColumn] = value;
@@ -1871,7 +1841,12 @@ namespace BudgetManager {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Memo {
                 get {
-                    return ((string)(this[this.tableTransaction.MemoColumn]));
+                    try {
+                        return ((string)(this[this.tableTransaction.MemoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Memo\' in table \'Transaction\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableTransaction.MemoColumn] = value;
@@ -1891,6 +1866,17 @@ namespace BudgetManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Date {
+                get {
+                    return ((global::System.DateTime)(this[this.tableTransaction.DateColumn]));
+                }
+                set {
+                    this[this.tableTransaction.DateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public AccountRow AccountRow {
                 get {
                     return ((AccountRow)(this.GetParentRow(this.Table.ParentRelations["Account_Transaction"])));
@@ -1898,6 +1884,18 @@ namespace BudgetManager {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["Account_Transaction"]);
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMemoNull() {
+                return this.IsNull(this.tableTransaction.MemoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMemoNull() {
+                this[this.tableTransaction.MemoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2487,14 +2485,14 @@ namespace BudgetManager.DatabaseDataSetTableAdapters {
                 "= @Original_Month))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BudgetID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BudgetID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Month", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Month", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Month", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Month", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Budget] ([BudgetID], [Month]) VALUES (@BudgetID, @Month);\r\nSEL" +
                 "ECT BudgetID, Month FROM Budget WHERE (BudgetID = @BudgetID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BudgetID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BudgetID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Month", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Month", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Month", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Month", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Budget] SET [BudgetID] = @BudgetID, [Month] = @Month WHERE (([Budge" +
@@ -2502,9 +2500,9 @@ namespace BudgetManager.DatabaseDataSetTableAdapters {
                 "onth FROM Budget WHERE (BudgetID = @BudgetID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BudgetID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BudgetID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Month", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Month", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Month", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Month", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BudgetID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BudgetID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Month", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Month", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Month", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Month", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3099,49 +3097,49 @@ SELECT GoalID, BudgetID, Category, Amount FROM Goal WHERE (GoalID = @GoalID)";
             tableMapping.DataSetTable = "Transaction";
             tableMapping.ColumnMappings.Add("TransactionID", "TransactionID");
             tableMapping.ColumnMappings.Add("AccountID", "AccountID");
-            tableMapping.ColumnMappings.Add("DateTime", "DateTime");
             tableMapping.ColumnMappings.Add("Category", "Category");
             tableMapping.ColumnMappings.Add("Memo", "Memo");
             tableMapping.ColumnMappings.Add("Amount", "Amount");
+            tableMapping.ColumnMappings.Add("Date", "Date");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Transaction] WHERE (([TransactionID] = @Original_TransactionID) AND ([AccountID] = @Original_AccountID) AND ([DateTime] = @Original_DateTime) AND ((@IsNull_Category = 1 AND [Category] IS NULL) OR ([Category] = @Original_Category)) AND ([Amount] = @Original_Amount))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Transaction] WHERE (([TransactionID] = @Original_TransactionID" +
+                ") AND ([AccountID] = @Original_AccountID) AND ([Category] = @Original_Category) " +
+                "AND ([Amount] = @Original_Amount) AND ([Date] = @Original_Date))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TransactionID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TransactionID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AccountID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccountID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Category", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Category", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Amount", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Transaction] ([TransactionID], [AccountID], [DateTime], [Category], [Memo], [Amount]) VALUES (@TransactionID, @AccountID, @DateTime, @Category, @Memo, @Amount);
-SELECT TransactionID, AccountID, DateTime, Category, Memo, Amount FROM [Transaction] WHERE (TransactionID = @TransactionID)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Transaction] ([TransactionID], [AccountID], [Category], [Memo], [Amount], [Date]) VALUES (@TransactionID, @AccountID, @Category, @Memo, @Amount, @Date);
+SELECT TransactionID, AccountID, Category, Memo, Amount, Date FROM [Transaction] WHERE (TransactionID = @TransactionID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransactionID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TransactionID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AccountID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccountID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Category", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Memo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Memo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Amount", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Transaction] SET [TransactionID] = @TransactionID, [AccountID] = @AccountID, [DateTime] = @DateTime, [Category] = @Category, [Memo] = @Memo, [Amount] = @Amount WHERE (([TransactionID] = @Original_TransactionID) AND ([AccountID] = @Original_AccountID) AND ([DateTime] = @Original_DateTime) AND ((@IsNull_Category = 1 AND [Category] IS NULL) OR ([Category] = @Original_Category)) AND ([Amount] = @Original_Amount));
-SELECT TransactionID, AccountID, DateTime, Category, Memo, Amount FROM [Transaction] WHERE (TransactionID = @TransactionID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Transaction] SET [TransactionID] = @TransactionID, [AccountID] = @AccountID, [Category] = @Category, [Memo] = @Memo, [Amount] = @Amount, [Date] = @Date WHERE (([TransactionID] = @Original_TransactionID) AND ([AccountID] = @Original_AccountID) AND ([Category] = @Original_Category) AND ([Amount] = @Original_Amount) AND ([Date] = @Original_Date));
+SELECT TransactionID, AccountID, Category, Memo, Amount, Date FROM [Transaction] WHERE (TransactionID = @TransactionID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransactionID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TransactionID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AccountID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccountID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DateTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Category", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Memo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Memo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Amount", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TransactionID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TransactionID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AccountID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AccountID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DateTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DateTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Category", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Category", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Category", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Amount", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3157,8 +3155,8 @@ SELECT TransactionID, AccountID, DateTime, Category, Memo, Amount FROM [Transact
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT TransactionID, AccountID, DateTime, Category, Memo, Amount FROM dbo.[Trans" +
-                "action]";
+            this._commandCollection[0].CommandText = "SELECT TransactionID, AccountID, Category, Memo, Amount, Date FROM dbo.[Transacti" +
+                "on]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3219,13 +3217,12 @@ SELECT TransactionID, AccountID, DateTime, Category, Memo, Amount FROM [Transact
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_TransactionID, int Original_AccountID, System.DateTime Original_DateTime, int Original_Category, double Original_Amount) {
+        public virtual int Delete(int Original_TransactionID, int Original_AccountID, int Original_Category, double Original_Amount, System.DateTime Original_Date) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_TransactionID));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_AccountID));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((System.DateTime)(Original_DateTime));
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_Category));
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((double)(Original_Amount));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_Category));
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((double)(Original_Amount));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_Date));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3246,18 +3243,18 @@ SELECT TransactionID, AccountID, DateTime, Category, Memo, Amount FROM [Transact
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int TransactionID, int AccountID, System.DateTime DateTime, int Category, string Memo, double Amount) {
+        public virtual int Insert(int TransactionID, int AccountID, int Category, string Memo, double Amount, System.DateTime Date) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(TransactionID));
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(AccountID));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(DateTime));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(Category));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Category));
             if ((Memo == null)) {
-                throw new global::System.ArgumentNullException("Memo");
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Memo));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Memo));
             }
-            this.Adapter.InsertCommand.Parameters[5].Value = ((double)(Amount));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((double)(Amount));
+            this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(Date));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3278,24 +3275,23 @@ SELECT TransactionID, AccountID, DateTime, Category, Memo, Amount FROM [Transact
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int TransactionID, int AccountID, System.DateTime DateTime, int Category, string Memo, double Amount, int Original_TransactionID, int Original_AccountID, System.DateTime Original_DateTime, int Original_Category, double Original_Amount) {
+        public virtual int Update(int TransactionID, int AccountID, int Category, string Memo, double Amount, System.DateTime Date, int Original_TransactionID, int Original_AccountID, int Original_Category, double Original_Amount, System.DateTime Original_Date) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(TransactionID));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(AccountID));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(DateTime));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Category));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Category));
             if ((Memo == null)) {
-                throw new global::System.ArgumentNullException("Memo");
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Memo));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Memo));
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((double)(Amount));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((double)(Amount));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(Date));
             this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_TransactionID));
             this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_AccountID));
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Original_DateTime));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_Category));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((double)(Original_Amount));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Category));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((double)(Original_Amount));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_Date));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3316,8 +3312,8 @@ SELECT TransactionID, AccountID, DateTime, Category, Memo, Amount FROM [Transact
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int AccountID, System.DateTime DateTime, int Category, string Memo, double Amount, int Original_TransactionID, int Original_AccountID, System.DateTime Original_DateTime, int Original_Category, double Original_Amount) {
-            return this.Update(Original_TransactionID, AccountID, DateTime, Category, Memo, Amount, Original_TransactionID, Original_AccountID, Original_DateTime, Original_Category, Original_Amount);
+        public virtual int Update(int AccountID, int Category, string Memo, double Amount, System.DateTime Date, int Original_TransactionID, int Original_AccountID, int Original_Category, double Original_Amount, System.DateTime Original_Date) {
+            return this.Update(Original_TransactionID, AccountID, Category, Memo, Amount, Date, Original_TransactionID, Original_AccountID, Original_Category, Original_Amount, Original_Date);
         }
     }
     

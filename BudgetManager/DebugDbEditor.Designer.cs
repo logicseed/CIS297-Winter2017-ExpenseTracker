@@ -29,152 +29,279 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DebugDbEditor));
             System.Windows.Forms.Label accountIDLabel;
             System.Windows.Forms.Label nameLabel;
             System.Windows.Forms.Label typeLabel;
             System.Windows.Forms.Label budgetIDLabel;
             System.Windows.Forms.Label monthLabel;
             System.Windows.Forms.Label goalIDLabel;
-            System.Windows.Forms.Label label1;
+            System.Windows.Forms.Label budgetIDLabel1;
             System.Windows.Forms.Label categoryLabel;
             System.Windows.Forms.Label amountLabel;
             System.Windows.Forms.Label transactionIDLabel;
-            System.Windows.Forms.Label label2;
-            System.Windows.Forms.Label dateTimeLabel;
-            System.Windows.Forms.Label label3;
+            System.Windows.Forms.Label accountIDLabel1;
+            System.Windows.Forms.Label categoryLabel1;
             System.Windows.Forms.Label memoLabel;
-            System.Windows.Forms.Label label4;
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            System.Windows.Forms.Label amountLabel1;
+            System.Windows.Forms.Label dateLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DebugDbEditor));
             this.databaseDataSet = new BudgetManager.DatabaseDataSet();
             this.accountBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.accountTableAdapter = new BudgetManager.DatabaseDataSetTableAdapters.AccountTableAdapter();
             this.tableAdapterManager = new BudgetManager.DatabaseDataSetTableAdapters.TableAdapterManager();
+            this.budgetTableAdapter = new BudgetManager.DatabaseDataSetTableAdapters.BudgetTableAdapter();
+            this.goalTableAdapter = new BudgetManager.DatabaseDataSetTableAdapters.GoalTableAdapter();
+            this.transactionTableAdapter = new BudgetManager.DatabaseDataSetTableAdapters.TransactionTableAdapter();
             this.accountBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.accountBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.accountIDTextBox = new System.Windows.Forms.TextBox();
+            this.accountIDNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.nameTextBox = new System.Windows.Forms.TextBox();
-            this.typeTextBox = new System.Windows.Forms.TextBox();
+            this.typeComboBox = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.budgetBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorAddNewItem1 = new System.Windows.Forms.ToolStripButton();
             this.budgetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorCountItem1 = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem1 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveFirstItem1 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem1 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorPositionItem1 = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem1 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem1 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.budgetBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.budgetTableAdapter = new BudgetManager.DatabaseDataSetTableAdapters.BudgetTableAdapter();
-            this.budgetIDTextBox = new System.Windows.Forms.TextBox();
+            this.budgetIDNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.monthDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.goalIDNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.goalBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.goalTableAdapter = new BudgetManager.DatabaseDataSetTableAdapters.GoalTableAdapter();
+            this.budgetIDNumericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.goalCategoryComboBox = new System.Windows.Forms.ComboBox();
+            this.amountNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.goalBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton9 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton10 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton11 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton12 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorAddNewItem2 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem2 = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem2 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveFirstItem2 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem2 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorPositionItem2 = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem2 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem2 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.goalBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.goalIDTextBox = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.categoryTextBox = new System.Windows.Forms.TextBox();
-            this.amountTextBox = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.transactionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.transactionTableAdapter = new BudgetManager.DatabaseDataSetTableAdapters.TransactionTableAdapter();
             this.transactionBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.toolStripButton13 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton14 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton15 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton16 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripTextBox3 = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton17 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton18 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorAddNewItem3 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem3 = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem3 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveFirstItem3 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem3 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorPositionItem3 = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem3 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem3 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.transactionBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.transactionIDTextBox = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.dateTimeDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.transactionIDNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.transactionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.accountIDNumericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.transactionCategoryComboBox = new System.Windows.Forms.ComboBox();
             this.memoTextBox = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.amountNumericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.dateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             accountIDLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
             typeLabel = new System.Windows.Forms.Label();
             budgetIDLabel = new System.Windows.Forms.Label();
             monthLabel = new System.Windows.Forms.Label();
             goalIDLabel = new System.Windows.Forms.Label();
-            label1 = new System.Windows.Forms.Label();
+            budgetIDLabel1 = new System.Windows.Forms.Label();
             categoryLabel = new System.Windows.Forms.Label();
             amountLabel = new System.Windows.Forms.Label();
             transactionIDLabel = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
-            dateTimeLabel = new System.Windows.Forms.Label();
-            label3 = new System.Windows.Forms.Label();
+            accountIDLabel1 = new System.Windows.Forms.Label();
+            categoryLabel1 = new System.Windows.Forms.Label();
             memoLabel = new System.Windows.Forms.Label();
-            label4 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            amountLabel1 = new System.Windows.Forms.Label();
+            dateLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingNavigator)).BeginInit();
             this.accountBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.accountIDNumericUpDown)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.budgetBindingNavigator)).BeginInit();
             this.budgetBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.budgetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.budgetIDNumericUpDown)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.goalIDNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.goalBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.budgetIDNumericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.amountNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.goalBindingNavigator)).BeginInit();
             this.goalBindingNavigator.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.transactionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.transactionBindingNavigator)).BeginInit();
             this.transactionBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.transactionIDNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transactionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountIDNumericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.amountNumericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // accountIDLabel
             // 
-            this.groupBox1.Controls.Add(this.accountBindingNavigator);
-            this.groupBox1.Controls.Add(accountIDLabel);
-            this.groupBox1.Controls.Add(this.accountIDTextBox);
-            this.groupBox1.Controls.Add(nameLabel);
-            this.groupBox1.Controls.Add(this.nameTextBox);
-            this.groupBox1.Controls.Add(typeLabel);
-            this.groupBox1.Controls.Add(this.typeTextBox);
-            this.groupBox1.Location = new System.Drawing.Point(309, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(291, 151);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Accounts";
+            accountIDLabel.AutoSize = true;
+            accountIDLabel.Location = new System.Drawing.Point(39, 51);
+            accountIDLabel.Name = "accountIDLabel";
+            accountIDLabel.Size = new System.Drawing.Size(64, 13);
+            accountIDLabel.TabIndex = 1;
+            accountIDLabel.Text = "Account ID:";
+            // 
+            // nameLabel
+            // 
+            nameLabel.AutoSize = true;
+            nameLabel.Location = new System.Drawing.Point(39, 80);
+            nameLabel.Name = "nameLabel";
+            nameLabel.Size = new System.Drawing.Size(38, 13);
+            nameLabel.TabIndex = 3;
+            nameLabel.Text = "Name:";
+            // 
+            // typeLabel
+            // 
+            typeLabel.AutoSize = true;
+            typeLabel.Location = new System.Drawing.Point(39, 106);
+            typeLabel.Name = "typeLabel";
+            typeLabel.Size = new System.Drawing.Size(34, 13);
+            typeLabel.TabIndex = 5;
+            typeLabel.Text = "Type:";
+            // 
+            // budgetIDLabel
+            // 
+            budgetIDLabel.AutoSize = true;
+            budgetIDLabel.Location = new System.Drawing.Point(46, 63);
+            budgetIDLabel.Name = "budgetIDLabel";
+            budgetIDLabel.Size = new System.Drawing.Size(58, 13);
+            budgetIDLabel.TabIndex = 0;
+            budgetIDLabel.Text = "Budget ID:";
+            // 
+            // monthLabel
+            // 
+            monthLabel.AutoSize = true;
+            monthLabel.Location = new System.Drawing.Point(46, 93);
+            monthLabel.Name = "monthLabel";
+            monthLabel.Size = new System.Drawing.Size(40, 13);
+            monthLabel.TabIndex = 2;
+            monthLabel.Text = "Month:";
+            // 
+            // goalIDLabel
+            // 
+            goalIDLabel.AutoSize = true;
+            goalIDLabel.Location = new System.Drawing.Point(46, 61);
+            goalIDLabel.Name = "goalIDLabel";
+            goalIDLabel.Size = new System.Drawing.Size(46, 13);
+            goalIDLabel.TabIndex = 6;
+            goalIDLabel.Text = "Goal ID:";
+            // 
+            // budgetIDLabel1
+            // 
+            budgetIDLabel1.AutoSize = true;
+            budgetIDLabel1.Location = new System.Drawing.Point(46, 87);
+            budgetIDLabel1.Name = "budgetIDLabel1";
+            budgetIDLabel1.Size = new System.Drawing.Size(58, 13);
+            budgetIDLabel1.TabIndex = 8;
+            budgetIDLabel1.Text = "Budget ID:";
+            // 
+            // categoryLabel
+            // 
+            categoryLabel.AutoSize = true;
+            categoryLabel.Location = new System.Drawing.Point(46, 116);
+            categoryLabel.Name = "categoryLabel";
+            categoryLabel.Size = new System.Drawing.Size(52, 13);
+            categoryLabel.TabIndex = 10;
+            categoryLabel.Text = "Category:";
+            // 
+            // amountLabel
+            // 
+            amountLabel.AutoSize = true;
+            amountLabel.Location = new System.Drawing.Point(46, 140);
+            amountLabel.Name = "amountLabel";
+            amountLabel.Size = new System.Drawing.Size(46, 13);
+            amountLabel.TabIndex = 12;
+            amountLabel.Text = "Amount:";
+            // 
+            // transactionIDLabel
+            // 
+            transactionIDLabel.AutoSize = true;
+            transactionIDLabel.Location = new System.Drawing.Point(27, 52);
+            transactionIDLabel.Name = "transactionIDLabel";
+            transactionIDLabel.Size = new System.Drawing.Size(80, 13);
+            transactionIDLabel.TabIndex = 0;
+            transactionIDLabel.Text = "Transaction ID:";
+            // 
+            // accountIDLabel1
+            // 
+            accountIDLabel1.AutoSize = true;
+            accountIDLabel1.Location = new System.Drawing.Point(27, 78);
+            accountIDLabel1.Name = "accountIDLabel1";
+            accountIDLabel1.Size = new System.Drawing.Size(64, 13);
+            accountIDLabel1.TabIndex = 2;
+            accountIDLabel1.Text = "Account ID:";
+            // 
+            // categoryLabel1
+            // 
+            categoryLabel1.AutoSize = true;
+            categoryLabel1.Location = new System.Drawing.Point(27, 107);
+            categoryLabel1.Name = "categoryLabel1";
+            categoryLabel1.Size = new System.Drawing.Size(52, 13);
+            categoryLabel1.TabIndex = 4;
+            categoryLabel1.Text = "Category:";
+            // 
+            // memoLabel
+            // 
+            memoLabel.AutoSize = true;
+            memoLabel.Location = new System.Drawing.Point(27, 134);
+            memoLabel.Name = "memoLabel";
+            memoLabel.Size = new System.Drawing.Size(39, 13);
+            memoLabel.TabIndex = 6;
+            memoLabel.Text = "Memo:";
+            // 
+            // amountLabel1
+            // 
+            amountLabel1.AutoSize = true;
+            amountLabel1.Location = new System.Drawing.Point(27, 157);
+            amountLabel1.Name = "amountLabel1";
+            amountLabel1.Size = new System.Drawing.Size(46, 13);
+            amountLabel1.TabIndex = 8;
+            amountLabel1.Text = "Amount:";
+            // 
+            // dateLabel
+            // 
+            dateLabel.AutoSize = true;
+            dateLabel.Location = new System.Drawing.Point(27, 187);
+            dateLabel.Name = "dateLabel";
+            dateLabel.Size = new System.Drawing.Size(33, 13);
+            dateLabel.TabIndex = 10;
+            dateLabel.Text = "Date:";
             // 
             // databaseDataSet
             // 
@@ -198,6 +325,18 @@
             this.tableAdapterManager.GoalTableAdapter = this.goalTableAdapter;
             this.tableAdapterManager.TransactionTableAdapter = this.transactionTableAdapter;
             this.tableAdapterManager.UpdateOrder = BudgetManager.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // budgetTableAdapter
+            // 
+            this.budgetTableAdapter.ClearBeforeFill = true;
+            // 
+            // goalTableAdapter
+            // 
+            this.goalTableAdapter.ClearBeforeFill = true;
+            // 
+            // transactionTableAdapter
+            // 
+            this.transactionTableAdapter.ClearBeforeFill = true;
             // 
             // accountBindingNavigator
             // 
@@ -226,9 +365,34 @@
             this.accountBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.accountBindingNavigator.Name = "accountBindingNavigator";
             this.accountBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.accountBindingNavigator.Size = new System.Drawing.Size(285, 25);
-            this.accountBindingNavigator.TabIndex = 1;
+            this.accountBindingNavigator.Size = new System.Drawing.Size(281, 25);
+            this.accountBindingNavigator.TabIndex = 0;
             this.accountBindingNavigator.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -262,16 +426,9 @@
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
@@ -294,26 +451,8 @@
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // accountBindingNavigatorSaveItem
             // 
@@ -324,193 +463,199 @@
             this.accountBindingNavigatorSaveItem.Text = "Save Data";
             this.accountBindingNavigatorSaveItem.Click += new System.EventHandler(this.accountBindingNavigatorSaveItem_Click);
             // 
-            // accountIDLabel
+            // accountIDNumericUpDown
             // 
-            accountIDLabel.AutoSize = true;
-            accountIDLabel.Location = new System.Drawing.Point(65, 63);
-            accountIDLabel.Name = "accountIDLabel";
-            accountIDLabel.Size = new System.Drawing.Size(64, 13);
-            accountIDLabel.TabIndex = 0;
-            accountIDLabel.Text = "Account ID:";
-            // 
-            // accountIDTextBox
-            // 
-            this.accountIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.accountBindingSource, "AccountID", true));
-            this.accountIDTextBox.Enabled = false;
-            this.accountIDTextBox.Location = new System.Drawing.Point(135, 60);
-            this.accountIDTextBox.Name = "accountIDTextBox";
-            this.accountIDTextBox.ReadOnly = true;
-            this.accountIDTextBox.Size = new System.Drawing.Size(100, 20);
-            this.accountIDTextBox.TabIndex = 1;
-            // 
-            // nameLabel
-            // 
-            nameLabel.AutoSize = true;
-            nameLabel.Location = new System.Drawing.Point(65, 89);
-            nameLabel.Name = "nameLabel";
-            nameLabel.Size = new System.Drawing.Size(38, 13);
-            nameLabel.TabIndex = 2;
-            nameLabel.Text = "Name:";
+            this.accountIDNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.accountBindingSource, "AccountID", true));
+            this.accountIDNumericUpDown.Enabled = false;
+            this.accountIDNumericUpDown.Location = new System.Drawing.Point(109, 51);
+            this.accountIDNumericUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.accountIDNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.accountIDNumericUpDown.Name = "accountIDNumericUpDown";
+            this.accountIDNumericUpDown.ReadOnly = true;
+            this.accountIDNumericUpDown.Size = new System.Drawing.Size(121, 20);
+            this.accountIDNumericUpDown.TabIndex = 2;
+            this.accountIDNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // nameTextBox
             // 
             this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.accountBindingSource, "Name", true));
-            this.nameTextBox.Location = new System.Drawing.Point(135, 86);
+            this.nameTextBox.Location = new System.Drawing.Point(109, 77);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.nameTextBox.TabIndex = 3;
+            this.nameTextBox.Size = new System.Drawing.Size(121, 20);
+            this.nameTextBox.TabIndex = 4;
             // 
-            // typeLabel
+            // typeComboBox
             // 
-            typeLabel.AutoSize = true;
-            typeLabel.Location = new System.Drawing.Point(65, 115);
-            typeLabel.Name = "typeLabel";
-            typeLabel.Size = new System.Drawing.Size(34, 13);
-            typeLabel.TabIndex = 4;
-            typeLabel.Text = "Type:";
+            this.typeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.accountBindingSource, "Type", true));
+            this.typeComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.accountBindingSource, "Type", true));
+            this.typeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.typeComboBox.FormattingEnabled = true;
+            this.typeComboBox.Location = new System.Drawing.Point(109, 103);
+            this.typeComboBox.Name = "typeComboBox";
+            this.typeComboBox.Size = new System.Drawing.Size(121, 21);
+            this.typeComboBox.TabIndex = 6;
             // 
-            // typeTextBox
+            // groupBox1
             // 
-            this.typeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.accountBindingSource, "Type", true));
-            this.typeTextBox.Location = new System.Drawing.Point(135, 112);
-            this.typeTextBox.Name = "typeTextBox";
-            this.typeTextBox.Size = new System.Drawing.Size(100, 20);
-            this.typeTextBox.TabIndex = 5;
+            this.groupBox1.Controls.Add(this.accountBindingNavigator);
+            this.groupBox1.Controls.Add(accountIDLabel);
+            this.groupBox1.Controls.Add(this.accountIDNumericUpDown);
+            this.groupBox1.Controls.Add(this.typeComboBox);
+            this.groupBox1.Controls.Add(nameLabel);
+            this.groupBox1.Controls.Add(typeLabel);
+            this.groupBox1.Controls.Add(this.nameTextBox);
+            this.groupBox1.Location = new System.Drawing.Point(305, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(287, 144);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Accounts";
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.budgetBindingNavigator);
             this.groupBox2.Controls.Add(budgetIDLabel);
-            this.groupBox2.Controls.Add(this.budgetIDTextBox);
-            this.groupBox2.Controls.Add(this.monthDateTimePicker);
+            this.groupBox2.Controls.Add(this.budgetIDNumericUpDown);
             this.groupBox2.Controls.Add(monthLabel);
+            this.groupBox2.Controls.Add(this.monthDateTimePicker);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(291, 151);
-            this.groupBox2.TabIndex = 1;
+            this.groupBox2.Size = new System.Drawing.Size(287, 144);
+            this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Budgets";
             // 
             // budgetBindingNavigator
             // 
-            this.budgetBindingNavigator.AddNewItem = this.toolStripButton1;
+            this.budgetBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem1;
             this.budgetBindingNavigator.BindingSource = this.budgetBindingSource;
-            this.budgetBindingNavigator.CountItem = this.toolStripLabel1;
-            this.budgetBindingNavigator.DeleteItem = this.toolStripButton2;
-            this.budgetBindingNavigator.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.budgetBindingNavigator.CountItem = this.bindingNavigatorCountItem1;
+            this.budgetBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem1;
             this.budgetBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton3,
-            this.toolStripButton4,
-            this.toolStripSeparator1,
-            this.toolStripTextBox1,
-            this.toolStripLabel1,
-            this.toolStripSeparator2,
-            this.toolStripButton5,
-            this.toolStripButton6,
-            this.toolStripSeparator3,
-            this.toolStripButton1,
-            this.toolStripButton2,
+            this.bindingNavigatorMoveFirstItem1,
+            this.bindingNavigatorMovePreviousItem1,
+            this.bindingNavigatorSeparator3,
+            this.bindingNavigatorPositionItem1,
+            this.bindingNavigatorCountItem1,
+            this.bindingNavigatorSeparator4,
+            this.bindingNavigatorMoveNextItem1,
+            this.bindingNavigatorMoveLastItem1,
+            this.bindingNavigatorSeparator5,
+            this.bindingNavigatorAddNewItem1,
+            this.bindingNavigatorDeleteItem1,
             this.budgetBindingNavigatorSaveItem});
             this.budgetBindingNavigator.Location = new System.Drawing.Point(3, 16);
-            this.budgetBindingNavigator.MoveFirstItem = this.toolStripButton3;
-            this.budgetBindingNavigator.MoveLastItem = this.toolStripButton6;
-            this.budgetBindingNavigator.MoveNextItem = this.toolStripButton5;
-            this.budgetBindingNavigator.MovePreviousItem = this.toolStripButton4;
+            this.budgetBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem1;
+            this.budgetBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem1;
+            this.budgetBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem1;
+            this.budgetBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem1;
             this.budgetBindingNavigator.Name = "budgetBindingNavigator";
-            this.budgetBindingNavigator.PositionItem = this.toolStripTextBox1;
-            this.budgetBindingNavigator.Size = new System.Drawing.Size(285, 25);
-            this.budgetBindingNavigator.TabIndex = 2;
+            this.budgetBindingNavigator.PositionItem = this.bindingNavigatorPositionItem1;
+            this.budgetBindingNavigator.Size = new System.Drawing.Size(281, 25);
+            this.budgetBindingNavigator.TabIndex = 4;
             this.budgetBindingNavigator.Text = "bindingNavigator1";
             // 
-            // toolStripButton1
+            // bindingNavigatorAddNewItem1
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "Add new";
+            this.bindingNavigatorAddNewItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem1.Image")));
+            this.bindingNavigatorAddNewItem1.Name = "bindingNavigatorAddNewItem1";
+            this.bindingNavigatorAddNewItem1.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem1.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem1.Text = "Add new";
             // 
             // budgetBindingSource
             // 
             this.budgetBindingSource.DataMember = "Budget";
             this.budgetBindingSource.DataSource = this.databaseDataSet;
             // 
-            // toolStripLabel1
+            // bindingNavigatorCountItem1
             // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(35, 22);
-            this.toolStripLabel1.Text = "of {0}";
-            this.toolStripLabel1.ToolTipText = "Total number of items";
+            this.bindingNavigatorCountItem1.Name = "bindingNavigatorCountItem1";
+            this.bindingNavigatorCountItem1.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem1.Text = "of {0}";
+            this.bindingNavigatorCountItem1.ToolTipText = "Total number of items";
             // 
-            // toolStripButton2
+            // bindingNavigatorDeleteItem1
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "Delete";
+            this.bindingNavigatorDeleteItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem1.Image")));
+            this.bindingNavigatorDeleteItem1.Name = "bindingNavigatorDeleteItem1";
+            this.bindingNavigatorDeleteItem1.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem1.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem1.Text = "Delete";
             // 
-            // toolStripButton3
+            // bindingNavigatorMoveFirstItem1
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton3.Text = "Move first";
+            this.bindingNavigatorMoveFirstItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem1.Image")));
+            this.bindingNavigatorMoveFirstItem1.Name = "bindingNavigatorMoveFirstItem1";
+            this.bindingNavigatorMoveFirstItem1.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstItem1.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveFirstItem1.Text = "Move first";
             // 
-            // toolStripButton4
+            // bindingNavigatorMovePreviousItem1
             // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton4.Text = "Move previous";
+            this.bindingNavigatorMovePreviousItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem1.Image")));
+            this.bindingNavigatorMovePreviousItem1.Name = "bindingNavigatorMovePreviousItem1";
+            this.bindingNavigatorMovePreviousItem1.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousItem1.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMovePreviousItem1.Text = "Move previous";
             // 
-            // toolStripSeparator1
+            // bindingNavigatorSeparator3
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator3.Name = "bindingNavigatorSeparator3";
+            this.bindingNavigatorSeparator3.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripTextBox1
+            // bindingNavigatorPositionItem1
             // 
-            this.toolStripTextBox1.AccessibleName = "Position";
-            this.toolStripTextBox1.AutoSize = false;
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(50, 23);
-            this.toolStripTextBox1.Text = "0";
-            this.toolStripTextBox1.ToolTipText = "Current position";
+            this.bindingNavigatorPositionItem1.AccessibleName = "Position";
+            this.bindingNavigatorPositionItem1.AutoSize = false;
+            this.bindingNavigatorPositionItem1.Name = "bindingNavigatorPositionItem1";
+            this.bindingNavigatorPositionItem1.Size = new System.Drawing.Size(50, 23);
+            this.bindingNavigatorPositionItem1.Text = "0";
+            this.bindingNavigatorPositionItem1.ToolTipText = "Current position";
             // 
-            // toolStripSeparator2
+            // bindingNavigatorSeparator4
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator4.Name = "bindingNavigatorSeparator4";
+            this.bindingNavigatorSeparator4.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripButton5
+            // bindingNavigatorMoveNextItem1
             // 
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton5.Text = "Move next";
+            this.bindingNavigatorMoveNextItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem1.Image")));
+            this.bindingNavigatorMoveNextItem1.Name = "bindingNavigatorMoveNextItem1";
+            this.bindingNavigatorMoveNextItem1.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextItem1.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveNextItem1.Text = "Move next";
             // 
-            // toolStripButton6
+            // bindingNavigatorMoveLastItem1
             // 
-            this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton6.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton6.Text = "Move last";
+            this.bindingNavigatorMoveLastItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem1.Image")));
+            this.bindingNavigatorMoveLastItem1.Name = "bindingNavigatorMoveLastItem1";
+            this.bindingNavigatorMoveLastItem1.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastItem1.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveLastItem1.Text = "Move last";
             // 
-            // toolStripSeparator3
+            // bindingNavigatorSeparator5
             // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator5.Name = "bindingNavigatorSeparator5";
+            this.bindingNavigatorSeparator5.Size = new System.Drawing.Size(6, 25);
             // 
             // budgetBindingNavigatorSaveItem
             // 
@@ -521,188 +666,251 @@
             this.budgetBindingNavigatorSaveItem.Text = "Save Data";
             this.budgetBindingNavigatorSaveItem.Click += new System.EventHandler(this.budgetBindingNavigatorSaveItem_Click);
             // 
-            // budgetTableAdapter
+            // budgetIDNumericUpDown
             // 
-            this.budgetTableAdapter.ClearBeforeFill = true;
-            // 
-            // budgetIDLabel
-            // 
-            budgetIDLabel.AutoSize = true;
-            budgetIDLabel.Location = new System.Drawing.Point(42, 66);
-            budgetIDLabel.Name = "budgetIDLabel";
-            budgetIDLabel.Size = new System.Drawing.Size(58, 13);
-            budgetIDLabel.TabIndex = 5;
-            budgetIDLabel.Text = "Budget ID:";
-            // 
-            // budgetIDTextBox
-            // 
-            this.budgetIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.budgetBindingSource, "BudgetID", true));
-            this.budgetIDTextBox.Enabled = false;
-            this.budgetIDTextBox.Location = new System.Drawing.Point(106, 63);
-            this.budgetIDTextBox.Name = "budgetIDTextBox";
-            this.budgetIDTextBox.ReadOnly = true;
-            this.budgetIDTextBox.Size = new System.Drawing.Size(137, 20);
-            this.budgetIDTextBox.TabIndex = 6;
-            // 
-            // monthLabel
-            // 
-            monthLabel.AutoSize = true;
-            monthLabel.Location = new System.Drawing.Point(42, 93);
-            monthLabel.Name = "monthLabel";
-            monthLabel.Size = new System.Drawing.Size(40, 13);
-            monthLabel.TabIndex = 7;
-            monthLabel.Text = "Month:";
+            this.budgetIDNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.budgetBindingSource, "BudgetID", true));
+            this.budgetIDNumericUpDown.Enabled = false;
+            this.budgetIDNumericUpDown.Location = new System.Drawing.Point(110, 63);
+            this.budgetIDNumericUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.budgetIDNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.budgetIDNumericUpDown.Name = "budgetIDNumericUpDown";
+            this.budgetIDNumericUpDown.ReadOnly = true;
+            this.budgetIDNumericUpDown.Size = new System.Drawing.Size(134, 20);
+            this.budgetIDNumericUpDown.TabIndex = 1;
+            this.budgetIDNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // monthDateTimePicker
             // 
+            this.monthDateTimePicker.CustomFormat = "MM yyyy";
             this.monthDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.budgetBindingSource, "Month", true));
-            this.monthDateTimePicker.Location = new System.Drawing.Point(106, 89);
+            this.monthDateTimePicker.Location = new System.Drawing.Point(110, 89);
             this.monthDateTimePicker.Name = "monthDateTimePicker";
-            this.monthDateTimePicker.Size = new System.Drawing.Size(137, 20);
-            this.monthDateTimePicker.TabIndex = 8;
+            this.monthDateTimePicker.ShowUpDown = true;
+            this.monthDateTimePicker.Size = new System.Drawing.Size(134, 20);
+            this.monthDateTimePicker.TabIndex = 3;
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(goalIDLabel);
-            this.groupBox3.Controls.Add(this.goalIDTextBox);
-            this.groupBox3.Controls.Add(this.goalBindingNavigator);
-            this.groupBox3.Controls.Add(label1);
-            this.groupBox3.Controls.Add(this.amountTextBox);
-            this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Controls.Add(amountLabel);
+            this.groupBox3.Controls.Add(this.goalIDNumericUpDown);
+            this.groupBox3.Controls.Add(budgetIDLabel1);
+            this.groupBox3.Controls.Add(this.budgetIDNumericUpDown1);
             this.groupBox3.Controls.Add(categoryLabel);
-            this.groupBox3.Controls.Add(this.categoryTextBox);
-            this.groupBox3.Location = new System.Drawing.Point(12, 169);
+            this.groupBox3.Controls.Add(this.goalCategoryComboBox);
+            this.groupBox3.Controls.Add(amountLabel);
+            this.groupBox3.Controls.Add(this.amountNumericUpDown);
+            this.groupBox3.Controls.Add(this.goalBindingNavigator);
+            this.groupBox3.Location = new System.Drawing.Point(12, 162);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(291, 204);
-            this.groupBox3.TabIndex = 2;
+            this.groupBox3.Size = new System.Drawing.Size(284, 221);
+            this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Goals";
+            // 
+            // goalIDNumericUpDown
+            // 
+            this.goalIDNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.goalBindingSource, "GoalID", true));
+            this.goalIDNumericUpDown.Enabled = false;
+            this.goalIDNumericUpDown.Location = new System.Drawing.Point(110, 61);
+            this.goalIDNumericUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.goalIDNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.goalIDNumericUpDown.Name = "goalIDNumericUpDown";
+            this.goalIDNumericUpDown.ReadOnly = true;
+            this.goalIDNumericUpDown.Size = new System.Drawing.Size(121, 20);
+            this.goalIDNumericUpDown.TabIndex = 7;
+            this.goalIDNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // goalBindingSource
             // 
             this.goalBindingSource.DataMember = "Goal";
             this.goalBindingSource.DataSource = this.databaseDataSet;
             // 
-            // goalTableAdapter
+            // budgetIDNumericUpDown1
             // 
-            this.goalTableAdapter.ClearBeforeFill = true;
+            this.budgetIDNumericUpDown1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.goalBindingSource, "BudgetID", true));
+            this.budgetIDNumericUpDown1.Location = new System.Drawing.Point(110, 87);
+            this.budgetIDNumericUpDown1.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.budgetIDNumericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.budgetIDNumericUpDown1.Name = "budgetIDNumericUpDown1";
+            this.budgetIDNumericUpDown1.Size = new System.Drawing.Size(121, 20);
+            this.budgetIDNumericUpDown1.TabIndex = 9;
+            this.budgetIDNumericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // goalCategoryComboBox
+            // 
+            this.goalCategoryComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.goalBindingSource, "Category", true));
+            this.goalCategoryComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.goalBindingSource, "Category", true));
+            this.goalCategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.goalCategoryComboBox.FormattingEnabled = true;
+            this.goalCategoryComboBox.Location = new System.Drawing.Point(110, 113);
+            this.goalCategoryComboBox.Name = "goalCategoryComboBox";
+            this.goalCategoryComboBox.Size = new System.Drawing.Size(121, 21);
+            this.goalCategoryComboBox.TabIndex = 11;
+            // 
+            // amountNumericUpDown
+            // 
+            this.amountNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.goalBindingSource, "Amount", true));
+            this.amountNumericUpDown.DecimalPlaces = 2;
+            this.amountNumericUpDown.Location = new System.Drawing.Point(110, 140);
+            this.amountNumericUpDown.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.amountNumericUpDown.Name = "amountNumericUpDown";
+            this.amountNumericUpDown.Size = new System.Drawing.Size(121, 20);
+            this.amountNumericUpDown.TabIndex = 13;
             // 
             // goalBindingNavigator
             // 
-            this.goalBindingNavigator.AddNewItem = this.toolStripButton7;
+            this.goalBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem2;
             this.goalBindingNavigator.BindingSource = this.goalBindingSource;
-            this.goalBindingNavigator.CountItem = this.toolStripLabel2;
-            this.goalBindingNavigator.DeleteItem = this.toolStripButton8;
-            this.goalBindingNavigator.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.goalBindingNavigator.CountItem = this.bindingNavigatorCountItem2;
+            this.goalBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem2;
             this.goalBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton9,
-            this.toolStripButton10,
-            this.toolStripSeparator4,
-            this.toolStripTextBox2,
-            this.toolStripLabel2,
-            this.toolStripSeparator5,
-            this.toolStripButton11,
-            this.toolStripButton12,
-            this.toolStripSeparator6,
-            this.toolStripButton7,
-            this.toolStripButton8,
+            this.bindingNavigatorMoveFirstItem2,
+            this.bindingNavigatorMovePreviousItem2,
+            this.bindingNavigatorSeparator6,
+            this.bindingNavigatorPositionItem2,
+            this.bindingNavigatorCountItem2,
+            this.bindingNavigatorSeparator7,
+            this.bindingNavigatorMoveNextItem2,
+            this.bindingNavigatorMoveLastItem2,
+            this.bindingNavigatorSeparator8,
+            this.bindingNavigatorAddNewItem2,
+            this.bindingNavigatorDeleteItem2,
             this.goalBindingNavigatorSaveItem});
             this.goalBindingNavigator.Location = new System.Drawing.Point(3, 16);
-            this.goalBindingNavigator.MoveFirstItem = this.toolStripButton9;
-            this.goalBindingNavigator.MoveLastItem = this.toolStripButton12;
-            this.goalBindingNavigator.MoveNextItem = this.toolStripButton11;
-            this.goalBindingNavigator.MovePreviousItem = this.toolStripButton10;
+            this.goalBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem2;
+            this.goalBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem2;
+            this.goalBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem2;
+            this.goalBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem2;
             this.goalBindingNavigator.Name = "goalBindingNavigator";
-            this.goalBindingNavigator.PositionItem = this.toolStripTextBox2;
-            this.goalBindingNavigator.Size = new System.Drawing.Size(285, 25);
-            this.goalBindingNavigator.TabIndex = 3;
+            this.goalBindingNavigator.PositionItem = this.bindingNavigatorPositionItem2;
+            this.goalBindingNavigator.Size = new System.Drawing.Size(278, 25);
+            this.goalBindingNavigator.TabIndex = 6;
             this.goalBindingNavigator.Text = "bindingNavigator1";
             // 
-            // toolStripButton7
+            // bindingNavigatorAddNewItem2
             // 
-            this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton7.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton7.Text = "Add new";
+            this.bindingNavigatorAddNewItem2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem2.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem2.Image")));
+            this.bindingNavigatorAddNewItem2.Name = "bindingNavigatorAddNewItem2";
+            this.bindingNavigatorAddNewItem2.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem2.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem2.Text = "Add new";
             // 
-            // toolStripLabel2
+            // bindingNavigatorCountItem2
             // 
-            this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(35, 22);
-            this.toolStripLabel2.Text = "of {0}";
-            this.toolStripLabel2.ToolTipText = "Total number of items";
+            this.bindingNavigatorCountItem2.Name = "bindingNavigatorCountItem2";
+            this.bindingNavigatorCountItem2.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem2.Text = "of {0}";
+            this.bindingNavigatorCountItem2.ToolTipText = "Total number of items";
             // 
-            // toolStripButton8
+            // bindingNavigatorDeleteItem2
             // 
-            this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton8.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton8.Text = "Delete";
+            this.bindingNavigatorDeleteItem2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem2.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem2.Image")));
+            this.bindingNavigatorDeleteItem2.Name = "bindingNavigatorDeleteItem2";
+            this.bindingNavigatorDeleteItem2.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem2.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem2.Text = "Delete";
             // 
-            // toolStripButton9
+            // bindingNavigatorMoveFirstItem2
             // 
-            this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton9.Image")));
-            this.toolStripButton9.Name = "toolStripButton9";
-            this.toolStripButton9.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton9.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton9.Text = "Move first";
+            this.bindingNavigatorMoveFirstItem2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstItem2.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem2.Image")));
+            this.bindingNavigatorMoveFirstItem2.Name = "bindingNavigatorMoveFirstItem2";
+            this.bindingNavigatorMoveFirstItem2.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstItem2.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveFirstItem2.Text = "Move first";
             // 
-            // toolStripButton10
+            // bindingNavigatorMovePreviousItem2
             // 
-            this.toolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton10.Image")));
-            this.toolStripButton10.Name = "toolStripButton10";
-            this.toolStripButton10.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton10.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton10.Text = "Move previous";
+            this.bindingNavigatorMovePreviousItem2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousItem2.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem2.Image")));
+            this.bindingNavigatorMovePreviousItem2.Name = "bindingNavigatorMovePreviousItem2";
+            this.bindingNavigatorMovePreviousItem2.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousItem2.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMovePreviousItem2.Text = "Move previous";
             // 
-            // toolStripSeparator4
+            // bindingNavigatorSeparator6
             // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator6.Name = "bindingNavigatorSeparator6";
+            this.bindingNavigatorSeparator6.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripTextBox2
+            // bindingNavigatorPositionItem2
             // 
-            this.toolStripTextBox2.AccessibleName = "Position";
-            this.toolStripTextBox2.AutoSize = false;
-            this.toolStripTextBox2.Name = "toolStripTextBox2";
-            this.toolStripTextBox2.Size = new System.Drawing.Size(50, 23);
-            this.toolStripTextBox2.Text = "0";
-            this.toolStripTextBox2.ToolTipText = "Current position";
+            this.bindingNavigatorPositionItem2.AccessibleName = "Position";
+            this.bindingNavigatorPositionItem2.AutoSize = false;
+            this.bindingNavigatorPositionItem2.Name = "bindingNavigatorPositionItem2";
+            this.bindingNavigatorPositionItem2.Size = new System.Drawing.Size(50, 23);
+            this.bindingNavigatorPositionItem2.Text = "0";
+            this.bindingNavigatorPositionItem2.ToolTipText = "Current position";
             // 
-            // toolStripSeparator5
+            // bindingNavigatorSeparator7
             // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator7.Name = "bindingNavigatorSeparator7";
+            this.bindingNavigatorSeparator7.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripButton11
+            // bindingNavigatorMoveNextItem2
             // 
-            this.toolStripButton11.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton11.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton11.Image")));
-            this.toolStripButton11.Name = "toolStripButton11";
-            this.toolStripButton11.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton11.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton11.Text = "Move next";
+            this.bindingNavigatorMoveNextItem2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextItem2.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem2.Image")));
+            this.bindingNavigatorMoveNextItem2.Name = "bindingNavigatorMoveNextItem2";
+            this.bindingNavigatorMoveNextItem2.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextItem2.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveNextItem2.Text = "Move next";
             // 
-            // toolStripButton12
+            // bindingNavigatorMoveLastItem2
             // 
-            this.toolStripButton12.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton12.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton12.Image")));
-            this.toolStripButton12.Name = "toolStripButton12";
-            this.toolStripButton12.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton12.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton12.Text = "Move last";
+            this.bindingNavigatorMoveLastItem2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastItem2.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem2.Image")));
+            this.bindingNavigatorMoveLastItem2.Name = "bindingNavigatorMoveLastItem2";
+            this.bindingNavigatorMoveLastItem2.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastItem2.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveLastItem2.Text = "Move last";
             // 
-            // toolStripSeparator6
+            // bindingNavigatorSeparator8
             // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator8.Name = "bindingNavigatorSeparator8";
+            this.bindingNavigatorSeparator8.Size = new System.Drawing.Size(6, 25);
             // 
             // goalBindingNavigatorSaveItem
             // 
@@ -713,341 +921,252 @@
             this.goalBindingNavigatorSaveItem.Text = "Save Data";
             this.goalBindingNavigatorSaveItem.Click += new System.EventHandler(this.goalBindingNavigatorSaveItem_Click);
             // 
-            // goalIDLabel
-            // 
-            goalIDLabel.AutoSize = true;
-            goalIDLabel.Location = new System.Drawing.Point(64, 71);
-            goalIDLabel.Name = "goalIDLabel";
-            goalIDLabel.Size = new System.Drawing.Size(46, 13);
-            goalIDLabel.TabIndex = 9;
-            goalIDLabel.Text = "Goal ID:";
-            // 
-            // goalIDTextBox
-            // 
-            this.goalIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.goalBindingSource, "GoalID", true));
-            this.goalIDTextBox.Enabled = false;
-            this.goalIDTextBox.Location = new System.Drawing.Point(128, 68);
-            this.goalIDTextBox.Name = "goalIDTextBox";
-            this.goalIDTextBox.ReadOnly = true;
-            this.goalIDTextBox.Size = new System.Drawing.Size(100, 20);
-            this.goalIDTextBox.TabIndex = 10;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(64, 97);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(58, 13);
-            label1.TabIndex = 11;
-            label1.Text = "Budget ID:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.goalBindingSource, "BudgetID", true));
-            this.textBox1.Location = new System.Drawing.Point(128, 94);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 12;
-            // 
-            // categoryLabel
-            // 
-            categoryLabel.AutoSize = true;
-            categoryLabel.Location = new System.Drawing.Point(64, 123);
-            categoryLabel.Name = "categoryLabel";
-            categoryLabel.Size = new System.Drawing.Size(52, 13);
-            categoryLabel.TabIndex = 13;
-            categoryLabel.Text = "Category:";
-            // 
-            // categoryTextBox
-            // 
-            this.categoryTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.goalBindingSource, "Category", true));
-            this.categoryTextBox.Location = new System.Drawing.Point(128, 120);
-            this.categoryTextBox.Name = "categoryTextBox";
-            this.categoryTextBox.Size = new System.Drawing.Size(100, 20);
-            this.categoryTextBox.TabIndex = 14;
-            // 
-            // amountLabel
-            // 
-            amountLabel.AutoSize = true;
-            amountLabel.Location = new System.Drawing.Point(64, 149);
-            amountLabel.Name = "amountLabel";
-            amountLabel.Size = new System.Drawing.Size(46, 13);
-            amountLabel.TabIndex = 15;
-            amountLabel.Text = "Amount:";
-            // 
-            // amountTextBox
-            // 
-            this.amountTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.goalBindingSource, "Amount", true));
-            this.amountTextBox.Location = new System.Drawing.Point(128, 146);
-            this.amountTextBox.Name = "amountTextBox";
-            this.amountTextBox.Size = new System.Drawing.Size(100, 20);
-            this.amountTextBox.TabIndex = 16;
-            // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(transactionIDLabel);
             this.groupBox4.Controls.Add(this.transactionBindingNavigator);
-            this.groupBox4.Controls.Add(this.transactionIDTextBox);
-            this.groupBox4.Controls.Add(label2);
-            this.groupBox4.Controls.Add(this.textBox4);
-            this.groupBox4.Controls.Add(this.textBox2);
-            this.groupBox4.Controls.Add(label4);
-            this.groupBox4.Controls.Add(dateTimeLabel);
-            this.groupBox4.Controls.Add(this.memoTextBox);
-            this.groupBox4.Controls.Add(this.dateTimeDateTimePicker);
+            this.groupBox4.Controls.Add(transactionIDLabel);
+            this.groupBox4.Controls.Add(this.transactionIDNumericUpDown);
+            this.groupBox4.Controls.Add(accountIDLabel1);
+            this.groupBox4.Controls.Add(this.accountIDNumericUpDown1);
+            this.groupBox4.Controls.Add(categoryLabel1);
+            this.groupBox4.Controls.Add(this.transactionCategoryComboBox);
             this.groupBox4.Controls.Add(memoLabel);
-            this.groupBox4.Controls.Add(label3);
-            this.groupBox4.Controls.Add(this.textBox3);
-            this.groupBox4.Location = new System.Drawing.Point(309, 169);
+            this.groupBox4.Controls.Add(this.memoTextBox);
+            this.groupBox4.Controls.Add(amountLabel1);
+            this.groupBox4.Controls.Add(this.amountNumericUpDown1);
+            this.groupBox4.Controls.Add(dateLabel);
+            this.groupBox4.Controls.Add(this.dateDateTimePicker);
+            this.groupBox4.Location = new System.Drawing.Point(305, 162);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(291, 204);
-            this.groupBox4.TabIndex = 3;
+            this.groupBox4.Size = new System.Drawing.Size(287, 221);
+            this.groupBox4.TabIndex = 10;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Transactions";
             // 
-            // transactionBindingSource
-            // 
-            this.transactionBindingSource.DataMember = "Transaction";
-            this.transactionBindingSource.DataSource = this.databaseDataSet;
-            // 
-            // transactionTableAdapter
-            // 
-            this.transactionTableAdapter.ClearBeforeFill = true;
-            // 
             // transactionBindingNavigator
             // 
-            this.transactionBindingNavigator.AddNewItem = this.toolStripButton13;
+            this.transactionBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem3;
             this.transactionBindingNavigator.BindingSource = this.transactionBindingSource;
-            this.transactionBindingNavigator.CountItem = this.toolStripLabel3;
-            this.transactionBindingNavigator.DeleteItem = this.toolStripButton14;
+            this.transactionBindingNavigator.CountItem = this.bindingNavigatorCountItem3;
+            this.transactionBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem3;
             this.transactionBindingNavigator.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.transactionBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton15,
-            this.toolStripButton16,
-            this.toolStripSeparator7,
-            this.toolStripTextBox3,
-            this.toolStripLabel3,
-            this.toolStripSeparator8,
-            this.toolStripButton17,
-            this.toolStripButton18,
-            this.toolStripSeparator9,
-            this.toolStripButton13,
-            this.toolStripButton14,
+            this.bindingNavigatorMoveFirstItem3,
+            this.bindingNavigatorMovePreviousItem3,
+            this.bindingNavigatorSeparator9,
+            this.bindingNavigatorPositionItem3,
+            this.bindingNavigatorCountItem3,
+            this.bindingNavigatorSeparator10,
+            this.bindingNavigatorMoveNextItem3,
+            this.bindingNavigatorMoveLastItem3,
+            this.bindingNavigatorSeparator11,
+            this.bindingNavigatorAddNewItem3,
+            this.bindingNavigatorDeleteItem3,
             this.transactionBindingNavigatorSaveItem});
             this.transactionBindingNavigator.Location = new System.Drawing.Point(3, 16);
-            this.transactionBindingNavigator.MoveFirstItem = this.toolStripButton15;
-            this.transactionBindingNavigator.MoveLastItem = this.toolStripButton18;
-            this.transactionBindingNavigator.MoveNextItem = this.toolStripButton17;
-            this.transactionBindingNavigator.MovePreviousItem = this.toolStripButton16;
+            this.transactionBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem3;
+            this.transactionBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem3;
+            this.transactionBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem3;
+            this.transactionBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem3;
             this.transactionBindingNavigator.Name = "transactionBindingNavigator";
-            this.transactionBindingNavigator.PositionItem = this.toolStripTextBox3;
-            this.transactionBindingNavigator.Size = new System.Drawing.Size(285, 25);
-            this.transactionBindingNavigator.TabIndex = 4;
+            this.transactionBindingNavigator.PositionItem = this.bindingNavigatorPositionItem3;
+            this.transactionBindingNavigator.Size = new System.Drawing.Size(281, 25);
+            this.transactionBindingNavigator.TabIndex = 12;
             this.transactionBindingNavigator.Text = "bindingNavigator1";
             // 
-            // toolStripButton13
+            // bindingNavigatorAddNewItem3
             // 
-            this.toolStripButton13.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton13.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton13.Image")));
-            this.toolStripButton13.Name = "toolStripButton13";
-            this.toolStripButton13.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton13.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton13.Text = "Add new";
+            this.bindingNavigatorAddNewItem3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem3.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem3.Image")));
+            this.bindingNavigatorAddNewItem3.Name = "bindingNavigatorAddNewItem3";
+            this.bindingNavigatorAddNewItem3.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem3.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem3.Text = "Add new";
             // 
-            // toolStripLabel3
+            // bindingNavigatorCountItem3
             // 
-            this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(35, 22);
-            this.toolStripLabel3.Text = "of {0}";
-            this.toolStripLabel3.ToolTipText = "Total number of items";
+            this.bindingNavigatorCountItem3.Name = "bindingNavigatorCountItem3";
+            this.bindingNavigatorCountItem3.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem3.Text = "of {0}";
+            this.bindingNavigatorCountItem3.ToolTipText = "Total number of items";
             // 
-            // toolStripButton14
+            // bindingNavigatorDeleteItem3
             // 
-            this.toolStripButton14.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton14.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton14.Image")));
-            this.toolStripButton14.Name = "toolStripButton14";
-            this.toolStripButton14.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton14.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton14.Text = "Delete";
+            this.bindingNavigatorDeleteItem3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem3.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem3.Image")));
+            this.bindingNavigatorDeleteItem3.Name = "bindingNavigatorDeleteItem3";
+            this.bindingNavigatorDeleteItem3.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem3.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem3.Text = "Delete";
             // 
-            // toolStripButton15
+            // bindingNavigatorMoveFirstItem3
             // 
-            this.toolStripButton15.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton15.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton15.Image")));
-            this.toolStripButton15.Name = "toolStripButton15";
-            this.toolStripButton15.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton15.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton15.Text = "Move first";
+            this.bindingNavigatorMoveFirstItem3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstItem3.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem3.Image")));
+            this.bindingNavigatorMoveFirstItem3.Name = "bindingNavigatorMoveFirstItem3";
+            this.bindingNavigatorMoveFirstItem3.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstItem3.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveFirstItem3.Text = "Move first";
             // 
-            // toolStripButton16
+            // bindingNavigatorMovePreviousItem3
             // 
-            this.toolStripButton16.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton16.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton16.Image")));
-            this.toolStripButton16.Name = "toolStripButton16";
-            this.toolStripButton16.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton16.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton16.Text = "Move previous";
+            this.bindingNavigatorMovePreviousItem3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousItem3.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem3.Image")));
+            this.bindingNavigatorMovePreviousItem3.Name = "bindingNavigatorMovePreviousItem3";
+            this.bindingNavigatorMovePreviousItem3.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousItem3.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMovePreviousItem3.Text = "Move previous";
             // 
-            // toolStripSeparator7
+            // bindingNavigatorSeparator9
             // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator9.Name = "bindingNavigatorSeparator9";
+            this.bindingNavigatorSeparator9.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripTextBox3
+            // bindingNavigatorPositionItem3
             // 
-            this.toolStripTextBox3.AccessibleName = "Position";
-            this.toolStripTextBox3.AutoSize = false;
-            this.toolStripTextBox3.Name = "toolStripTextBox3";
-            this.toolStripTextBox3.Size = new System.Drawing.Size(50, 23);
-            this.toolStripTextBox3.Text = "0";
-            this.toolStripTextBox3.ToolTipText = "Current position";
+            this.bindingNavigatorPositionItem3.AccessibleName = "Position";
+            this.bindingNavigatorPositionItem3.AutoSize = false;
+            this.bindingNavigatorPositionItem3.Name = "bindingNavigatorPositionItem3";
+            this.bindingNavigatorPositionItem3.Size = new System.Drawing.Size(50, 23);
+            this.bindingNavigatorPositionItem3.Text = "0";
+            this.bindingNavigatorPositionItem3.ToolTipText = "Current position";
             // 
-            // toolStripSeparator8
+            // bindingNavigatorSeparator10
             // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator10.Name = "bindingNavigatorSeparator10";
+            this.bindingNavigatorSeparator10.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripButton17
+            // bindingNavigatorMoveNextItem3
             // 
-            this.toolStripButton17.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton17.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton17.Image")));
-            this.toolStripButton17.Name = "toolStripButton17";
-            this.toolStripButton17.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton17.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton17.Text = "Move next";
+            this.bindingNavigatorMoveNextItem3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextItem3.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem3.Image")));
+            this.bindingNavigatorMoveNextItem3.Name = "bindingNavigatorMoveNextItem3";
+            this.bindingNavigatorMoveNextItem3.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextItem3.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveNextItem3.Text = "Move next";
             // 
-            // toolStripButton18
+            // bindingNavigatorMoveLastItem3
             // 
-            this.toolStripButton18.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton18.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton18.Image")));
-            this.toolStripButton18.Name = "toolStripButton18";
-            this.toolStripButton18.RightToLeftAutoMirrorImage = true;
-            this.toolStripButton18.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton18.Text = "Move last";
+            this.bindingNavigatorMoveLastItem3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastItem3.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem3.Image")));
+            this.bindingNavigatorMoveLastItem3.Name = "bindingNavigatorMoveLastItem3";
+            this.bindingNavigatorMoveLastItem3.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastItem3.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveLastItem3.Text = "Move last";
             // 
-            // toolStripSeparator9
+            // bindingNavigatorSeparator11
             // 
-            this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator11.Name = "bindingNavigatorSeparator11";
+            this.bindingNavigatorSeparator11.Size = new System.Drawing.Size(6, 25);
             // 
             // transactionBindingNavigatorSaveItem
             // 
             this.transactionBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.transactionBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("transactionBindingNavigatorSaveItem.Image")));
             this.transactionBindingNavigatorSaveItem.Name = "transactionBindingNavigatorSaveItem";
-            this.transactionBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
+            this.transactionBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 20);
             this.transactionBindingNavigatorSaveItem.Text = "Save Data";
             this.transactionBindingNavigatorSaveItem.Click += new System.EventHandler(this.transactionBindingNavigatorSaveItem_Click);
             // 
-            // transactionIDLabel
+            // transactionIDNumericUpDown
             // 
-            transactionIDLabel.AutoSize = true;
-            transactionIDLabel.Location = new System.Drawing.Point(12, 48);
-            transactionIDLabel.Name = "transactionIDLabel";
-            transactionIDLabel.Size = new System.Drawing.Size(80, 13);
-            transactionIDLabel.TabIndex = 13;
-            transactionIDLabel.Text = "Transaction ID:";
+            this.transactionIDNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.transactionBindingSource, "TransactionID", true));
+            this.transactionIDNumericUpDown.Enabled = false;
+            this.transactionIDNumericUpDown.Location = new System.Drawing.Point(113, 52);
+            this.transactionIDNumericUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.transactionIDNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.transactionIDNumericUpDown.Name = "transactionIDNumericUpDown";
+            this.transactionIDNumericUpDown.ReadOnly = true;
+            this.transactionIDNumericUpDown.Size = new System.Drawing.Size(143, 20);
+            this.transactionIDNumericUpDown.TabIndex = 1;
+            this.transactionIDNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
-            // transactionIDTextBox
+            // transactionBindingSource
             // 
-            this.transactionIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.transactionBindingSource, "TransactionID", true));
-            this.transactionIDTextBox.Enabled = false;
-            this.transactionIDTextBox.Location = new System.Drawing.Point(98, 45);
-            this.transactionIDTextBox.Name = "transactionIDTextBox";
-            this.transactionIDTextBox.ReadOnly = true;
-            this.transactionIDTextBox.Size = new System.Drawing.Size(176, 20);
-            this.transactionIDTextBox.TabIndex = 14;
+            this.transactionBindingSource.DataMember = "Transaction";
+            this.transactionBindingSource.DataSource = this.databaseDataSet;
             // 
-            // label2
+            // accountIDNumericUpDown1
             // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(12, 74);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(64, 13);
-            label2.TabIndex = 15;
-            label2.Text = "Account ID:";
+            this.accountIDNumericUpDown1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.transactionBindingSource, "AccountID", true));
+            this.accountIDNumericUpDown1.Location = new System.Drawing.Point(113, 78);
+            this.accountIDNumericUpDown1.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.accountIDNumericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.accountIDNumericUpDown1.Name = "accountIDNumericUpDown1";
+            this.accountIDNumericUpDown1.Size = new System.Drawing.Size(143, 20);
+            this.accountIDNumericUpDown1.TabIndex = 3;
+            this.accountIDNumericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
-            // textBox2
+            // transactionCategoryComboBox
             // 
-            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.transactionBindingSource, "AccountID", true));
-            this.textBox2.Location = new System.Drawing.Point(98, 71);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(176, 20);
-            this.textBox2.TabIndex = 16;
-            // 
-            // dateTimeLabel
-            // 
-            dateTimeLabel.AutoSize = true;
-            dateTimeLabel.Location = new System.Drawing.Point(12, 101);
-            dateTimeLabel.Name = "dateTimeLabel";
-            dateTimeLabel.Size = new System.Drawing.Size(59, 13);
-            dateTimeLabel.TabIndex = 17;
-            dateTimeLabel.Text = "Date Time:";
-            // 
-            // dateTimeDateTimePicker
-            // 
-            this.dateTimeDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.transactionBindingSource, "DateTime", true));
-            this.dateTimeDateTimePicker.Location = new System.Drawing.Point(98, 97);
-            this.dateTimeDateTimePicker.Name = "dateTimeDateTimePicker";
-            this.dateTimeDateTimePicker.Size = new System.Drawing.Size(176, 20);
-            this.dateTimeDateTimePicker.TabIndex = 18;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(12, 126);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(52, 13);
-            label3.TabIndex = 19;
-            label3.Text = "Category:";
-            // 
-            // textBox3
-            // 
-            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.transactionBindingSource, "Category", true));
-            this.textBox3.Location = new System.Drawing.Point(98, 123);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(176, 20);
-            this.textBox3.TabIndex = 20;
-            // 
-            // memoLabel
-            // 
-            memoLabel.AutoSize = true;
-            memoLabel.Location = new System.Drawing.Point(12, 152);
-            memoLabel.Name = "memoLabel";
-            memoLabel.Size = new System.Drawing.Size(39, 13);
-            memoLabel.TabIndex = 21;
-            memoLabel.Text = "Memo:";
+            this.transactionCategoryComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.transactionBindingSource, "Category", true));
+            this.transactionCategoryComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.transactionBindingSource, "Category", true));
+            this.transactionCategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.transactionCategoryComboBox.FormattingEnabled = true;
+            this.transactionCategoryComboBox.Location = new System.Drawing.Point(113, 104);
+            this.transactionCategoryComboBox.Name = "transactionCategoryComboBox";
+            this.transactionCategoryComboBox.Size = new System.Drawing.Size(143, 21);
+            this.transactionCategoryComboBox.TabIndex = 5;
             // 
             // memoTextBox
             // 
             this.memoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.transactionBindingSource, "Memo", true));
-            this.memoTextBox.Location = new System.Drawing.Point(98, 149);
+            this.memoTextBox.Location = new System.Drawing.Point(113, 131);
             this.memoTextBox.Name = "memoTextBox";
-            this.memoTextBox.Size = new System.Drawing.Size(176, 20);
-            this.memoTextBox.TabIndex = 22;
+            this.memoTextBox.Size = new System.Drawing.Size(143, 20);
+            this.memoTextBox.TabIndex = 7;
             // 
-            // label4
+            // amountNumericUpDown1
             // 
-            label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(12, 178);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(46, 13);
-            label4.TabIndex = 23;
-            label4.Text = "Amount:";
+            this.amountNumericUpDown1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.transactionBindingSource, "Amount", true));
+            this.amountNumericUpDown1.DecimalPlaces = 2;
+            this.amountNumericUpDown1.Location = new System.Drawing.Point(113, 157);
+            this.amountNumericUpDown1.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.amountNumericUpDown1.Name = "amountNumericUpDown1";
+            this.amountNumericUpDown1.Size = new System.Drawing.Size(143, 20);
+            this.amountNumericUpDown1.TabIndex = 9;
             // 
-            // textBox4
+            // dateDateTimePicker
             // 
-            this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.transactionBindingSource, "Amount", true));
-            this.textBox4.Location = new System.Drawing.Point(98, 175);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(176, 20);
-            this.textBox4.TabIndex = 24;
+            this.dateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.transactionBindingSource, "Date", true));
+            this.dateDateTimePicker.Location = new System.Drawing.Point(113, 183);
+            this.dateDateTimePicker.Name = "dateDateTimePicker";
+            this.dateDateTimePicker.Size = new System.Drawing.Size(143, 20);
+            this.dateDateTimePicker.TabIndex = 11;
             // 
             // DebugDbEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(610, 383);
+            this.ClientSize = new System.Drawing.Size(605, 394);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -1056,45 +1175,50 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DebugDbEditor";
-            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Debug Database Editor";
-            this.TopMost = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "DebugDbEditor";
             this.Load += new System.EventHandler(this.DebugDbEditor_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingNavigator)).EndInit();
             this.accountBindingNavigator.ResumeLayout(false);
             this.accountBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.accountIDNumericUpDown)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.budgetBindingNavigator)).EndInit();
             this.budgetBindingNavigator.ResumeLayout(false);
             this.budgetBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.budgetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.budgetIDNumericUpDown)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.goalIDNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.goalBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.budgetIDNumericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.amountNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.goalBindingNavigator)).EndInit();
             this.goalBindingNavigator.ResumeLayout(false);
             this.goalBindingNavigator.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.transactionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.transactionBindingNavigator)).EndInit();
             this.transactionBindingNavigator.ResumeLayout(false);
             this.transactionBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.transactionIDNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transactionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountIDNumericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.amountNumericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
         private DatabaseDataSet databaseDataSet;
         private System.Windows.Forms.BindingSource accountBindingSource;
         private DatabaseDataSetTableAdapters.AccountTableAdapter accountTableAdapter;
@@ -1112,68 +1236,69 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton accountBindingNavigatorSaveItem;
-        private System.Windows.Forms.TextBox accountIDTextBox;
+        private System.Windows.Forms.NumericUpDown accountIDNumericUpDown;
         private System.Windows.Forms.TextBox nameTextBox;
-        private System.Windows.Forms.TextBox typeTextBox;
+        private System.Windows.Forms.ComboBox typeComboBox;
+        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private DatabaseDataSetTableAdapters.BudgetTableAdapter budgetTableAdapter;
-        private System.Windows.Forms.BindingNavigator budgetBindingNavigator;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.BindingSource budgetBindingSource;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
-        private System.Windows.Forms.ToolStripButton toolStripButton6;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripButton budgetBindingNavigatorSaveItem;
-        private System.Windows.Forms.TextBox budgetIDTextBox;
+        private DatabaseDataSetTableAdapters.BudgetTableAdapter budgetTableAdapter;
+        private System.Windows.Forms.NumericUpDown budgetIDNumericUpDown;
         private System.Windows.Forms.DateTimePicker monthDateTimePicker;
+        private System.Windows.Forms.BindingNavigator budgetBindingNavigator;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem1;
+        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem1;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem1;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem1;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem1;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator3;
+        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem1;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator4;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem1;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem1;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator5;
+        private System.Windows.Forms.ToolStripButton budgetBindingNavigatorSaveItem;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.BindingSource goalBindingSource;
         private DatabaseDataSetTableAdapters.GoalTableAdapter goalTableAdapter;
         private System.Windows.Forms.BindingNavigator goalBindingNavigator;
-        private System.Windows.Forms.ToolStripButton toolStripButton7;
-        private System.Windows.Forms.BindingSource goalBindingSource;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
-        private System.Windows.Forms.ToolStripButton toolStripButton8;
-        private System.Windows.Forms.ToolStripButton toolStripButton9;
-        private System.Windows.Forms.ToolStripButton toolStripButton10;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripButton toolStripButton11;
-        private System.Windows.Forms.ToolStripButton toolStripButton12;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem2;
+        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem2;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem2;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem2;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem2;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator6;
+        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem2;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator7;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem2;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem2;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator8;
         private System.Windows.Forms.ToolStripButton goalBindingNavigatorSaveItem;
-        private System.Windows.Forms.TextBox goalIDTextBox;
-        private System.Windows.Forms.TextBox amountTextBox;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox categoryTextBox;
+        private System.Windows.Forms.NumericUpDown goalIDNumericUpDown;
+        private System.Windows.Forms.NumericUpDown budgetIDNumericUpDown1;
+        private System.Windows.Forms.ComboBox goalCategoryComboBox;
+        private System.Windows.Forms.NumericUpDown amountNumericUpDown;
         private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.BindingSource transactionBindingSource;
         private DatabaseDataSetTableAdapters.TransactionTableAdapter transactionTableAdapter;
         private System.Windows.Forms.BindingNavigator transactionBindingNavigator;
-        private System.Windows.Forms.ToolStripButton toolStripButton13;
-        private System.Windows.Forms.BindingSource transactionBindingSource;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel3;
-        private System.Windows.Forms.ToolStripButton toolStripButton14;
-        private System.Windows.Forms.ToolStripButton toolStripButton15;
-        private System.Windows.Forms.ToolStripButton toolStripButton16;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox3;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
-        private System.Windows.Forms.ToolStripButton toolStripButton17;
-        private System.Windows.Forms.ToolStripButton toolStripButton18;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem3;
+        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem3;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem3;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem3;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem3;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator9;
+        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem3;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator10;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem3;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem3;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator11;
         private System.Windows.Forms.ToolStripButton transactionBindingNavigatorSaveItem;
-        private System.Windows.Forms.TextBox transactionIDTextBox;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.NumericUpDown transactionIDNumericUpDown;
+        private System.Windows.Forms.NumericUpDown accountIDNumericUpDown1;
+        private System.Windows.Forms.ComboBox transactionCategoryComboBox;
         private System.Windows.Forms.TextBox memoTextBox;
-        private System.Windows.Forms.DateTimePicker dateTimeDateTimePicker;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.NumericUpDown amountNumericUpDown1;
+        private System.Windows.Forms.DateTimePicker dateDateTimePicker;
     }
 }
