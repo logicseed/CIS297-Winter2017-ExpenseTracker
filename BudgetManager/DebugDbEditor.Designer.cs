@@ -32,8 +32,6 @@
             System.Windows.Forms.Label accountIDLabel;
             System.Windows.Forms.Label nameLabel;
             System.Windows.Forms.Label typeLabel;
-            System.Windows.Forms.Label budgetIDLabel;
-            System.Windows.Forms.Label monthLabel;
             System.Windows.Forms.Label goalIDLabel;
             System.Windows.Forms.Label budgetIDLabel1;
             System.Windows.Forms.Label categoryLabel;
@@ -45,6 +43,9 @@
             System.Windows.Forms.Label amountLabel1;
             System.Windows.Forms.Label dateLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DebugDbEditor));
+            System.Windows.Forms.Label budgetIDLabel;
+            System.Windows.Forms.Label startDateLabel;
+            System.Windows.Forms.Label endDateLabel;
             this.databaseDataSet = new BudgetManager.DatabaseDataSet();
             this.accountBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.accountTableAdapter = new BudgetManager.DatabaseDataSetTableAdapters.AccountTableAdapter();
@@ -84,8 +85,6 @@
             this.bindingNavigatorMoveLastItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.budgetBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.budgetIDNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.monthDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.goalIDNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.goalBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -108,6 +107,7 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.transactionBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem3 = new System.Windows.Forms.ToolStripButton();
+            this.transactionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem3 = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem3 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem3 = new System.Windows.Forms.ToolStripButton();
@@ -120,17 +120,17 @@
             this.bindingNavigatorSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.transactionBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.transactionIDNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.transactionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.accountIDNumericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.transactionCategoryComboBox = new System.Windows.Forms.ComboBox();
             this.memoTextBox = new System.Windows.Forms.TextBox();
             this.amountNumericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.dateDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.budgetIDNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.startDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.endDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             accountIDLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
             typeLabel = new System.Windows.Forms.Label();
-            budgetIDLabel = new System.Windows.Forms.Label();
-            monthLabel = new System.Windows.Forms.Label();
             goalIDLabel = new System.Windows.Forms.Label();
             budgetIDLabel1 = new System.Windows.Forms.Label();
             categoryLabel = new System.Windows.Forms.Label();
@@ -141,6 +141,9 @@
             memoLabel = new System.Windows.Forms.Label();
             amountLabel1 = new System.Windows.Forms.Label();
             dateLabel = new System.Windows.Forms.Label();
+            budgetIDLabel = new System.Windows.Forms.Label();
+            startDateLabel = new System.Windows.Forms.Label();
+            endDateLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingNavigator)).BeginInit();
@@ -151,7 +154,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.budgetBindingNavigator)).BeginInit();
             this.budgetBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.budgetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.budgetIDNumericUpDown)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.goalIDNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.goalBindingSource)).BeginInit();
@@ -162,10 +164,11 @@
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.transactionBindingNavigator)).BeginInit();
             this.transactionBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.transactionIDNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.transactionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transactionIDNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountIDNumericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.amountNumericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.budgetIDNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // accountIDLabel
@@ -194,24 +197,6 @@
             typeLabel.Size = new System.Drawing.Size(34, 13);
             typeLabel.TabIndex = 5;
             typeLabel.Text = "Type:";
-            // 
-            // budgetIDLabel
-            // 
-            budgetIDLabel.AutoSize = true;
-            budgetIDLabel.Location = new System.Drawing.Point(46, 63);
-            budgetIDLabel.Name = "budgetIDLabel";
-            budgetIDLabel.Size = new System.Drawing.Size(58, 13);
-            budgetIDLabel.TabIndex = 0;
-            budgetIDLabel.Text = "Budget ID:";
-            // 
-            // monthLabel
-            // 
-            monthLabel.AutoSize = true;
-            monthLabel.Location = new System.Drawing.Point(46, 93);
-            monthLabel.Name = "monthLabel";
-            monthLabel.Size = new System.Drawing.Size(40, 13);
-            monthLabel.TabIndex = 2;
-            monthLabel.Text = "Month:";
             // 
             // goalIDLabel
             // 
@@ -525,14 +510,16 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.budgetBindingNavigator);
             this.groupBox2.Controls.Add(budgetIDLabel);
             this.groupBox2.Controls.Add(this.budgetIDNumericUpDown);
-            this.groupBox2.Controls.Add(monthLabel);
-            this.groupBox2.Controls.Add(this.monthDateTimePicker);
+            this.groupBox2.Controls.Add(startDateLabel);
+            this.groupBox2.Controls.Add(this.startDateDateTimePicker);
+            this.groupBox2.Controls.Add(endDateLabel);
+            this.groupBox2.Controls.Add(this.endDateDateTimePicker);
+            this.groupBox2.Controls.Add(this.budgetBindingNavigator);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(287, 144);
+            this.groupBox2.Size = new System.Drawing.Size(284, 144);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Budgets";
@@ -563,7 +550,7 @@
             this.budgetBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem1;
             this.budgetBindingNavigator.Name = "budgetBindingNavigator";
             this.budgetBindingNavigator.PositionItem = this.bindingNavigatorPositionItem1;
-            this.budgetBindingNavigator.Size = new System.Drawing.Size(281, 25);
+            this.budgetBindingNavigator.Size = new System.Drawing.Size(278, 25);
             this.budgetBindingNavigator.TabIndex = 4;
             this.budgetBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -665,41 +652,6 @@
             this.budgetBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.budgetBindingNavigatorSaveItem.Text = "Save Data";
             this.budgetBindingNavigatorSaveItem.Click += new System.EventHandler(this.budgetBindingNavigatorSaveItem_Click);
-            // 
-            // budgetIDNumericUpDown
-            // 
-            this.budgetIDNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.budgetBindingSource, "BudgetID", true));
-            this.budgetIDNumericUpDown.Enabled = false;
-            this.budgetIDNumericUpDown.Location = new System.Drawing.Point(110, 63);
-            this.budgetIDNumericUpDown.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.budgetIDNumericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.budgetIDNumericUpDown.Name = "budgetIDNumericUpDown";
-            this.budgetIDNumericUpDown.ReadOnly = true;
-            this.budgetIDNumericUpDown.Size = new System.Drawing.Size(134, 20);
-            this.budgetIDNumericUpDown.TabIndex = 1;
-            this.budgetIDNumericUpDown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // monthDateTimePicker
-            // 
-            this.monthDateTimePicker.CustomFormat = "MM yyyy";
-            this.monthDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.budgetBindingSource, "Month", true));
-            this.monthDateTimePicker.Location = new System.Drawing.Point(110, 89);
-            this.monthDateTimePicker.Name = "monthDateTimePicker";
-            this.monthDateTimePicker.ShowUpDown = true;
-            this.monthDateTimePicker.Size = new System.Drawing.Size(134, 20);
-            this.monthDateTimePicker.TabIndex = 3;
             // 
             // groupBox3
             // 
@@ -983,6 +935,11 @@
             this.bindingNavigatorAddNewItem3.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem3.Text = "Add new";
             // 
+            // transactionBindingSource
+            // 
+            this.transactionBindingSource.DataMember = "Transaction";
+            this.transactionBindingSource.DataSource = this.databaseDataSet;
+            // 
             // bindingNavigatorCountItem3
             // 
             this.bindingNavigatorCountItem3.Name = "bindingNavigatorCountItem3";
@@ -1064,7 +1021,7 @@
             this.transactionBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.transactionBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("transactionBindingNavigatorSaveItem.Image")));
             this.transactionBindingNavigatorSaveItem.Name = "transactionBindingNavigatorSaveItem";
-            this.transactionBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 20);
+            this.transactionBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.transactionBindingNavigatorSaveItem.Text = "Save Data";
             this.transactionBindingNavigatorSaveItem.Click += new System.EventHandler(this.transactionBindingNavigatorSaveItem_Click);
             // 
@@ -1092,11 +1049,6 @@
             0,
             0,
             0});
-            // 
-            // transactionBindingSource
-            // 
-            this.transactionBindingSource.DataMember = "Transaction";
-            this.transactionBindingSource.DataSource = this.databaseDataSet;
             // 
             // accountIDNumericUpDown1
             // 
@@ -1162,6 +1114,57 @@
             this.dateDateTimePicker.Size = new System.Drawing.Size(143, 20);
             this.dateDateTimePicker.TabIndex = 11;
             // 
+            // budgetIDLabel
+            // 
+            budgetIDLabel.AutoSize = true;
+            budgetIDLabel.Location = new System.Drawing.Point(40, 51);
+            budgetIDLabel.Name = "budgetIDLabel";
+            budgetIDLabel.Size = new System.Drawing.Size(58, 13);
+            budgetIDLabel.TabIndex = 4;
+            budgetIDLabel.Text = "Budget ID:";
+            // 
+            // budgetIDNumericUpDown
+            // 
+            this.budgetIDNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.budgetBindingSource, "BudgetID", true));
+            this.budgetIDNumericUpDown.Location = new System.Drawing.Point(104, 51);
+            this.budgetIDNumericUpDown.Name = "budgetIDNumericUpDown";
+            this.budgetIDNumericUpDown.Size = new System.Drawing.Size(140, 20);
+            this.budgetIDNumericUpDown.TabIndex = 5;
+            // 
+            // startDateLabel
+            // 
+            startDateLabel.AutoSize = true;
+            startDateLabel.Location = new System.Drawing.Point(40, 81);
+            startDateLabel.Name = "startDateLabel";
+            startDateLabel.Size = new System.Drawing.Size(58, 13);
+            startDateLabel.TabIndex = 6;
+            startDateLabel.Text = "Start Date:";
+            // 
+            // startDateDateTimePicker
+            // 
+            this.startDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.budgetBindingSource, "StartDate", true));
+            this.startDateDateTimePicker.Location = new System.Drawing.Point(104, 77);
+            this.startDateDateTimePicker.Name = "startDateDateTimePicker";
+            this.startDateDateTimePicker.Size = new System.Drawing.Size(140, 20);
+            this.startDateDateTimePicker.TabIndex = 7;
+            // 
+            // endDateLabel
+            // 
+            endDateLabel.AutoSize = true;
+            endDateLabel.Location = new System.Drawing.Point(40, 107);
+            endDateLabel.Name = "endDateLabel";
+            endDateLabel.Size = new System.Drawing.Size(55, 13);
+            endDateLabel.TabIndex = 8;
+            endDateLabel.Text = "End Date:";
+            // 
+            // endDateDateTimePicker
+            // 
+            this.endDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.budgetBindingSource, "EndDate", true));
+            this.endDateDateTimePicker.Location = new System.Drawing.Point(104, 103);
+            this.endDateDateTimePicker.Name = "endDateDateTimePicker";
+            this.endDateDateTimePicker.Size = new System.Drawing.Size(140, 20);
+            this.endDateDateTimePicker.TabIndex = 9;
+            // 
             // DebugDbEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1194,7 +1197,6 @@
             this.budgetBindingNavigator.ResumeLayout(false);
             this.budgetBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.budgetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.budgetIDNumericUpDown)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.goalIDNumericUpDown)).EndInit();
@@ -1209,10 +1211,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.transactionBindingNavigator)).EndInit();
             this.transactionBindingNavigator.ResumeLayout(false);
             this.transactionBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.transactionIDNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.transactionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transactionIDNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountIDNumericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.amountNumericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.budgetIDNumericUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1243,8 +1246,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.BindingSource budgetBindingSource;
         private DatabaseDataSetTableAdapters.BudgetTableAdapter budgetTableAdapter;
-        private System.Windows.Forms.NumericUpDown budgetIDNumericUpDown;
-        private System.Windows.Forms.DateTimePicker monthDateTimePicker;
         private System.Windows.Forms.BindingNavigator budgetBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem1;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem1;
@@ -1300,5 +1301,8 @@
         private System.Windows.Forms.TextBox memoTextBox;
         private System.Windows.Forms.NumericUpDown amountNumericUpDown1;
         private System.Windows.Forms.DateTimePicker dateDateTimePicker;
+        private System.Windows.Forms.NumericUpDown budgetIDNumericUpDown;
+        private System.Windows.Forms.DateTimePicker startDateDateTimePicker;
+        private System.Windows.Forms.DateTimePicker endDateDateTimePicker;
     }
 }
