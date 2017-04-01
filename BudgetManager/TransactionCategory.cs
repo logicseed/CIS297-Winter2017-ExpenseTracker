@@ -9,6 +9,7 @@ namespace BudgetManager
     public enum TransactionCategory
     {
         Uncategorized,
+        Income,
         Savings,
         Groceries,
         AdultClothing,
