@@ -22,5 +22,11 @@ namespace BudgetManager
             var debugDbEditor = new DebugDbEditor();
             debugDbEditor.ShowDialog();
         }
+
+        private void mockUpBtn_Click(object sender, EventArgs e)
+        {
+            var mockUp = new Mockup();
+            mockUp.ShowDialog();
+        }
     }
 }

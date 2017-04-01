@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.debugDbEditorButton = new System.Windows.Forms.Button();
+            this.mockUpBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // debugDbEditorButton
@@ -37,10 +38,11 @@
             this.debugDbEditorButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.debugDbEditorButton.Image = global::BudgetManager.Properties.Resources.debug_editor;
             this.debugDbEditorButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.debugDbEditorButton.Location = new System.Drawing.Point(134, 201);
+            this.debugDbEditorButton.Location = new System.Drawing.Point(244, 356);
+            this.debugDbEditorButton.Margin = new System.Windows.Forms.Padding(6);
             this.debugDbEditorButton.Name = "debugDbEditorButton";
-            this.debugDbEditorButton.Padding = new System.Windows.Forms.Padding(5);
-            this.debugDbEditorButton.Size = new System.Drawing.Size(129, 38);
+            this.debugDbEditorButton.Padding = new System.Windows.Forms.Padding(10);
+            this.debugDbEditorButton.Size = new System.Drawing.Size(224, 55);
             this.debugDbEditorButton.TabIndex = 4;
             this.debugDbEditorButton.Text = "Debug DB Editor";
             this.debugDbEditorButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -48,12 +50,24 @@
             this.debugDbEditorButton.UseVisualStyleBackColor = true;
             this.debugDbEditorButton.Click += new System.EventHandler(this.debugDbEditorButton_Click);
             // 
+            // mockUpBtn
+            // 
+            this.mockUpBtn.Location = new System.Drawing.Point(244, 292);
+            this.mockUpBtn.Name = "mockUpBtn";
+            this.mockUpBtn.Size = new System.Drawing.Size(224, 55);
+            this.mockUpBtn.TabIndex = 5;
+            this.mockUpBtn.Text = "MockUp";
+            this.mockUpBtn.UseVisualStyleBackColor = true;
+            this.mockUpBtn.Click += new System.EventHandler(this.mockUpBtn_Click);
+            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(568, 502);
+            this.Controls.Add(this.mockUpBtn);
             this.Controls.Add(this.debugDbEditorButton);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Budget Manager";
@@ -64,6 +78,7 @@
 
         #endregion
         private System.Windows.Forms.Button debugDbEditorButton;
+        private System.Windows.Forms.Button mockUpBtn;
     }
 }
 
