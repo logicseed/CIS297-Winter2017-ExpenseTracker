@@ -14,7 +14,6 @@ namespace BudgetManager.Queries
             {
                 Budget budget = new Budget
                 {
-                    //Does DB start at 1 or 0?
                     BudgetID = 1,
                     StartDate = startDate,
                     EndDate = endDate
@@ -46,9 +45,18 @@ namespace BudgetManager.Queries
 
         public void DeleteBudget(int budgetID)
         {
-            //Find budget by ID
-            //Remove all goals associated with this budget
-            //Remove budget
+            var goalsToDelete = from Goals in finance.Goals
+                                where Goals.BudgetID == budgetID
+                                select Goals;
+            foreach(var goal in goalsToDelete)
+            {
+                finance.Goals.Remove(goal);
+            }
+
+            var budgetToDelete = (from Budgets in finance.Budgets
+                                  where Budgets.BudgetID == budgetID
+                                  select Budgets).Single();
+            finance.Budgets.Remove(budgetToDelete);
         }
     }
 }

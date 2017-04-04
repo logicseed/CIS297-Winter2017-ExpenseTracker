@@ -8,6 +8,8 @@ namespace BudgetManager
 {
     class AccountQueries : DatabaseEntity
     {
+        TransactionQueries transactionQ = new TransactionQueries();
+
         public void InsertAccount(string name, int type)
         {
             if (finance.Accounts.Count() == 0)
@@ -44,14 +46,20 @@ namespace BudgetManager
             return accountsList;
         }
 
-        public void DeleteAccount(int accountID)
+        public bool DeleteAccount(int accountID)
         {
-            var accountToRemove = (from Accounts in finance.Accounts
-                                  where Accounts.AccountID == accountID
-                                  select Accounts).Single();
+            var transactions = transactionQ.GetTransactionsByAccount(accountID);
 
-            //Need to reassign transactions
-            finance.Accounts.Remove(accountToRemove);
+            if (transactions.Count() == 0)
+            {
+                var accountToRemove = (from Accounts in finance.Accounts
+                                       where Accounts.AccountID == accountID
+                                       select Accounts).Single();
+                finance.Accounts.Remove(accountToRemove);
+                return true;
+            }
+            else
+                return false;
         }
     }
 }
