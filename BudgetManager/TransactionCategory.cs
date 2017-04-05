@@ -10,6 +10,7 @@ namespace BudgetManager
     {
         Uncategorized,
         Income,
+        CreditCardPayment,
         Savings,
         Groceries,
         AdultClothing,
