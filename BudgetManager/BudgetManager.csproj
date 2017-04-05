@@ -72,6 +72,12 @@
     <Compile Include="Account.cs">
       <DependentUpon>BudgetManagerDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Queries\AccountQueries.cs" />
     <Compile Include="AccountType.cs" />
     <Compile Include="Budget.cs">
@@ -130,6 +136,9 @@
     <Compile Include="Queries\TransactionQueries.cs" />
     <EmbeddedResource Include="DebugDbEditor.resx">
       <DependentUpon>DebugDbEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

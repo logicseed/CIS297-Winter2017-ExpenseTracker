@@ -1,4 +1,4 @@
-﻿namespace CIS_297_Database_Project___UI
+﻿namespace BudgetManager
 {
     partial class Form1
     {

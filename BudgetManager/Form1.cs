@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CIS_297_Database_Project___UI
+namespace BudgetManager
 {
     public partial class Form1 : Form
     {
