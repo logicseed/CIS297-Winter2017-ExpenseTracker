@@ -31,10 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label startDateLabel1;
             System.Windows.Forms.Label endDateLabel1;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.budgetTab = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.editTransactionButton = new System.Windows.Forms.Button();
@@ -171,9 +171,8 @@
             this.label4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.accountBindingSource, "Type", true));
             this.label4.Location = new System.Drawing.Point(138, 82);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 16);
+            this.label4.Size = new System.Drawing.Size(0, 16);
             this.label4.TabIndex = 14;
-            this.label4.Text = "label4";
             // 
             // accountBindingSource
             // 
@@ -191,9 +190,8 @@
             this.accountBalanceLabel.AutoSize = true;
             this.accountBalanceLabel.Location = new System.Drawing.Point(138, 58);
             this.accountBalanceLabel.Name = "accountBalanceLabel";
-            this.accountBalanceLabel.Size = new System.Drawing.Size(45, 16);
+            this.accountBalanceLabel.Size = new System.Drawing.Size(0, 16);
             this.accountBalanceLabel.TabIndex = 13;
-            this.accountBalanceLabel.Text = "label4";
             // 
             // label3
             // 
@@ -273,9 +271,9 @@
             // amountDataGridViewTextBoxColumn
             // 
             this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
-            dataGridViewCellStyle5.Format = "C2";
-            dataGridViewCellStyle5.NullValue = "0.00";
-            this.amountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle9.Format = "C2";
+            dataGridViewCellStyle9.NullValue = "0.00";
+            this.amountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
             this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
             this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
             this.amountDataGridViewTextBoxColumn.ReadOnly = true;
@@ -283,9 +281,9 @@
             // dateDataGridViewTextBoxColumn
             // 
             this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            dataGridViewCellStyle6.Format = "d";
-            dataGridViewCellStyle6.NullValue = "2017-01-01";
-            this.dateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle10.Format = "d";
+            dataGridViewCellStyle10.NullValue = "2017-01-01";
+            this.dateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
             this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
             this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
             this.dateDataGridViewTextBoxColumn.ReadOnly = true;
@@ -388,9 +386,8 @@
             this.startDateLabel.AutoSize = true;
             this.startDateLabel.Location = new System.Drawing.Point(146, 81);
             this.startDateLabel.Name = "startDateLabel";
-            this.startDateLabel.Size = new System.Drawing.Size(45, 16);
+            this.startDateLabel.Size = new System.Drawing.Size(0, 16);
             this.startDateLabel.TabIndex = 10;
-            this.startDateLabel.Text = "label6";
             // 
             // goalGridView
             // 
@@ -552,18 +549,18 @@
             // amountDataGridViewTextBoxColumn1
             // 
             this.amountDataGridViewTextBoxColumn1.DataPropertyName = "Amount";
-            dataGridViewCellStyle7.Format = "C2";
-            dataGridViewCellStyle7.NullValue = "0.00";
-            this.amountDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle11.Format = "C2";
+            dataGridViewCellStyle11.NullValue = "0.00";
+            this.amountDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle11;
             this.amountDataGridViewTextBoxColumn1.HeaderText = "Amount";
             this.amountDataGridViewTextBoxColumn1.Name = "amountDataGridViewTextBoxColumn1";
             this.amountDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // goalBalance
             // 
-            dataGridViewCellStyle8.Format = "C2";
-            dataGridViewCellStyle8.NullValue = "$0.00";
-            this.goalBalance.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle12.Format = "C2";
+            dataGridViewCellStyle12.NullValue = "$0.00";
+            this.goalBalance.DefaultCellStyle = dataGridViewCellStyle12;
             this.goalBalance.HeaderText = "Balance";
             this.goalBalance.Name = "goalBalance";
             this.goalBalance.ReadOnly = true;
