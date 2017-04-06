@@ -39,7 +39,7 @@ namespace BudgetManager
             this.goalTableAdapter.Fill(this.databaseDataSet.Goal);
             // TODO: This line of code loads data into the 'databaseDataSet.Transaction' table. You can move, or remove it, as needed.
             this.transactionTableAdapter.Fill(this.databaseDataSet.Transaction);
-
+            RefreshAccountInfo();
         }
 
         private void refreshButton_Click(object sender, EventArgs e)
@@ -122,9 +122,17 @@ namespace BudgetManager
 
         private void accountNameComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var accountID = (int)((DataRowView)accountBindingSource.Current).Row["AccountID"];
-            transactionBindingSource.RemoveFilter();
-            transactionBindingSource.Filter = "AccountID = " + accountID;
+            RefreshAccountInfo();
+        }
+
+        private void RefreshAccountInfo()
+        {
+            if (accountBindingSource.Count > 0)
+            {
+                var accountID = (int)((DataRowView)accountBindingSource.Current).Row["AccountID"];
+                transactionBindingSource.RemoveFilter();
+                transactionBindingSource.Filter = "AccountID = " + accountID;
+            }
         }
     }
 }

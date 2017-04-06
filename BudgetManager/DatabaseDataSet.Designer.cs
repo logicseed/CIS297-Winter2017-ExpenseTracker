@@ -555,7 +555,7 @@ namespace BudgetManager {
                 this.columnAccountID.ReadOnly = true;
                 this.columnAccountID.Unique = true;
                 this.columnName.AllowDBNull = false;
-                this.columnName.DefaultValue = ((string)("New Account"));
+                this.columnName.DefaultValue = ((string)("Unnamed account"));
                 this.columnName.MaxLength = 2147483647;
                 this.columnType.AllowDBNull = false;
             }
@@ -693,6 +693,8 @@ namespace BudgetManager {
             
             private global::System.Data.DataColumn columnBudgetID;
             
+            private global::System.Data.DataColumn columnName;
+            
             private global::System.Data.DataColumn columnStartDate;
             
             private global::System.Data.DataColumn columnEndDate;
@@ -735,6 +737,14 @@ namespace BudgetManager {
             public global::System.Data.DataColumn BudgetIDColumn {
                 get {
                     return this.columnBudgetID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NameColumn {
+                get {
+                    return this.columnName;
                 }
             }
             
@@ -791,10 +801,11 @@ namespace BudgetManager {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BudgetRow AddBudgetRow(System.DateTime StartDate, System.DateTime EndDate) {
+            public BudgetRow AddBudgetRow(string Name, System.DateTime StartDate, System.DateTime EndDate) {
                 BudgetRow rowBudgetRow = ((BudgetRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
+                        Name,
                         StartDate,
                         EndDate};
                 rowBudgetRow.ItemArray = columnValuesArray;
@@ -827,6 +838,7 @@ namespace BudgetManager {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnBudgetID = base.Columns["BudgetID"];
+                this.columnName = base.Columns["Name"];
                 this.columnStartDate = base.Columns["StartDate"];
                 this.columnEndDate = base.Columns["EndDate"];
             }
@@ -836,6 +848,8 @@ namespace BudgetManager {
             private void InitClass() {
                 this.columnBudgetID = new global::System.Data.DataColumn("BudgetID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBudgetID);
+                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnName);
                 this.columnStartDate = new global::System.Data.DataColumn("StartDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStartDate);
                 this.columnEndDate = new global::System.Data.DataColumn("EndDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
@@ -847,6 +861,9 @@ namespace BudgetManager {
                 this.columnBudgetID.AllowDBNull = false;
                 this.columnBudgetID.ReadOnly = true;
                 this.columnBudgetID.Unique = true;
+                this.columnName.AllowDBNull = false;
+                this.columnName.DefaultValue = ((string)("Unnamed budget"));
+                this.columnName.MaxLength = 2147483647;
                 this.columnStartDate.AllowDBNull = false;
                 this.columnEndDate.AllowDBNull = false;
             }
@@ -1156,7 +1173,7 @@ namespace BudgetManager {
                 this.columnGoalID.ReadOnly = true;
                 this.columnGoalID.Unique = true;
                 this.columnBudgetID.AllowDBNull = false;
-                this.columnBudgetID.DefaultValue = ((int)(1));
+                this.columnBudgetID.ReadOnly = true;
                 this.columnCategory.AllowDBNull = false;
                 this.columnAmount.AllowDBNull = false;
                 this.columnAmount.DefaultValue = ((double)(0D));
@@ -1495,6 +1512,7 @@ namespace BudgetManager {
                 this.columnTransactionID.ReadOnly = true;
                 this.columnTransactionID.Unique = true;
                 this.columnAccountID.AllowDBNull = false;
+                this.columnAccountID.ReadOnly = true;
                 this.columnAccountID.DefaultValue = ((int)(1));
                 this.columnCategory.AllowDBNull = false;
                 this.columnMemo.DefaultValue = ((string)("No memo"));
@@ -1709,6 +1727,17 @@ namespace BudgetManager {
                 }
                 set {
                     this[this.tableBudget.BudgetIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Name {
+                get {
+                    return ((string)(this[this.tableBudget.NameColumn]));
+                }
+                set {
+                    this[this.tableBudget.NameColumn] = value;
                 }
             }
             
@@ -2503,6 +2532,7 @@ namespace BudgetManager.DatabaseDataSetTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Budget";
             tableMapping.ColumnMappings.Add("BudgetID", "BudgetID");
+            tableMapping.ColumnMappings.Add("Name", "Name");
             tableMapping.ColumnMappings.Add("StartDate", "StartDate");
             tableMapping.ColumnMappings.Add("EndDate", "EndDate");
             this._adapter.TableMappings.Add(tableMapping);
@@ -2516,19 +2546,21 @@ namespace BudgetManager.DatabaseDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EndDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EndDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Budget] ([BudgetID], [StartDate], [EndDate]) VALUES (@BudgetID" +
-                ", @StartDate, @EndDate);\r\nSELECT BudgetID, StartDate, EndDate FROM Budget WHERE " +
-                "(BudgetID = @BudgetID)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Budget] ([BudgetID], [Name], [StartDate], [EndDate]) VALUES (@" +
+                "BudgetID, @Name, @StartDate, @EndDate);\r\nSELECT BudgetID, Name, StartDate, EndDa" +
+                "te FROM Budget WHERE (BudgetID = @BudgetID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BudgetID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BudgetID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StartDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StartDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EndDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Budget] SET [BudgetID] = @BudgetID, [StartDate] = @StartDate, [EndDate] = @EndDate WHERE (([BudgetID] = @Original_BudgetID) AND ([StartDate] = @Original_StartDate) AND ([EndDate] = @Original_EndDate));
-SELECT BudgetID, StartDate, EndDate FROM Budget WHERE (BudgetID = @BudgetID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Budget] SET [BudgetID] = @BudgetID, [Name] = @Name, [StartDate] = @StartDate, [EndDate] = @EndDate WHERE (([BudgetID] = @Original_BudgetID) AND ([StartDate] = @Original_StartDate) AND ([EndDate] = @Original_EndDate));
+SELECT BudgetID, Name, StartDate, EndDate FROM Budget WHERE (BudgetID = @BudgetID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BudgetID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BudgetID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StartDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StartDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EndDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BudgetID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BudgetID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -2549,7 +2581,7 @@ SELECT BudgetID, StartDate, EndDate FROM Budget WHERE (BudgetID = @BudgetID)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT BudgetID, StartDate, EndDate FROM dbo.Budget";
+            this._commandCollection[0].CommandText = "SELECT BudgetID, Name, StartDate, EndDate FROM dbo.Budget";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2634,10 +2666,16 @@ SELECT BudgetID, StartDate, EndDate FROM Budget WHERE (BudgetID = @BudgetID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int BudgetID, System.DateTime StartDate, System.DateTime EndDate) {
+        public virtual int Insert(int BudgetID, string Name, System.DateTime StartDate, System.DateTime EndDate) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(BudgetID));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(StartDate));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(EndDate));
+            if ((Name == null)) {
+                throw new global::System.ArgumentNullException("Name");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Name));
+            }
+            this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(StartDate));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(EndDate));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2658,13 +2696,19 @@ SELECT BudgetID, StartDate, EndDate FROM Budget WHERE (BudgetID = @BudgetID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int BudgetID, System.DateTime StartDate, System.DateTime EndDate, int Original_BudgetID, System.DateTime Original_StartDate, System.DateTime Original_EndDate) {
+        public virtual int Update(int BudgetID, string Name, System.DateTime StartDate, System.DateTime EndDate, int Original_BudgetID, System.DateTime Original_StartDate, System.DateTime Original_EndDate) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(BudgetID));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(StartDate));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(EndDate));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_BudgetID));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(Original_StartDate));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(Original_EndDate));
+            if ((Name == null)) {
+                throw new global::System.ArgumentNullException("Name");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Name));
+            }
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(StartDate));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(EndDate));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_BudgetID));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(Original_StartDate));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(Original_EndDate));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2685,8 +2729,8 @@ SELECT BudgetID, StartDate, EndDate FROM Budget WHERE (BudgetID = @BudgetID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(System.DateTime StartDate, System.DateTime EndDate, int Original_BudgetID, System.DateTime Original_StartDate, System.DateTime Original_EndDate) {
-            return this.Update(Original_BudgetID, StartDate, EndDate, Original_BudgetID, Original_StartDate, Original_EndDate);
+        public virtual int Update(string Name, System.DateTime StartDate, System.DateTime EndDate, int Original_BudgetID, System.DateTime Original_StartDate, System.DateTime Original_EndDate) {
+            return this.Update(Original_BudgetID, Name, StartDate, EndDate, Original_BudgetID, Original_StartDate, Original_EndDate);
         }
     }
     
