@@ -12,6 +12,7 @@ namespace BudgetManager
 {
     public partial class MainForm : Form
     {
+        TransactionQueries transactionQ = new TransactionQueries();
         public MainForm()
         {
             InitializeComponent();
@@ -122,6 +123,18 @@ namespace BudgetManager
 
         private void accountNameComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+          
+            /*
+             *Updating on SelectedIndexChanged did not allow for the accountBindingSource to be updated
+             *fast enough. Changed to updating on the current item of accountBindingSource being changes
+             *should have same intended effect.
+             */
+
+            //RefreshAccountInfo();
+        }
+
+        private void accountBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
             RefreshAccountInfo();
         }
 
@@ -132,6 +145,9 @@ namespace BudgetManager
                 var accountID = (int)((DataRowView)accountBindingSource.Current).Row["AccountID"];
                 transactionBindingSource.RemoveFilter();
                 transactionBindingSource.Filter = "AccountID = " + accountID;
+
+                var accountBalance = transactionQ.AmountsByAccount(accountID);
+                accountBalanceLabel.Text = "$" + accountBalance.ToString();
             }
         }
     }

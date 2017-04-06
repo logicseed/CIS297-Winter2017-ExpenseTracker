@@ -176,6 +176,7 @@
             // 
             this.accountBindingSource.DataMember = "Account";
             this.accountBindingSource.DataSource = this.databaseDataSet;
+            this.accountBindingSource.CurrentChanged += new System.EventHandler(this.accountBindingSource_CurrentChanged);
             // 
             // databaseDataSet
             // 
