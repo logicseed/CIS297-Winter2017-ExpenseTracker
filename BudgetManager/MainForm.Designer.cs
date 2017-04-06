@@ -31,11 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label startDateLabel1;
             System.Windows.Forms.Label endDateLabel1;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.mockUpBtn = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.budgetTab = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.editTransactionButton = new System.Windows.Forms.Button();
@@ -72,7 +71,6 @@
             this.debugDbEditorButton = new System.Windows.Forms.Button();
             this.transactionTableAdapter = new BudgetManager.DatabaseDataSetTableAdapters.TransactionTableAdapter();
             this.goalTableAdapter = new BudgetManager.DatabaseDataSetTableAdapters.GoalTableAdapter();
-            this.refreshButton = new System.Windows.Forms.Button();
             this.accountTableAdapter = new BudgetManager.DatabaseDataSetTableAdapters.AccountTableAdapter();
             this.tableAdapterManager = new BudgetManager.DatabaseDataSetTableAdapters.TableAdapterManager();
             this.budgetTableAdapter = new BudgetManager.DatabaseDataSetTableAdapters.BudgetTableAdapter();
@@ -115,17 +113,6 @@
             endDateLabel1.Size = new System.Drawing.Size(67, 16);
             endDateLabel1.TabIndex = 15;
             endDateLabel1.Text = "End Date:";
-            // 
-            // mockUpBtn
-            // 
-            this.mockUpBtn.Location = new System.Drawing.Point(466, 560);
-            this.mockUpBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.mockUpBtn.Name = "mockUpBtn";
-            this.mockUpBtn.Size = new System.Drawing.Size(112, 29);
-            this.mockUpBtn.TabIndex = 5;
-            this.mockUpBtn.Text = "MockUp";
-            this.mockUpBtn.UseVisualStyleBackColor = true;
-            this.mockUpBtn.Click += new System.EventHandler(this.mockUpBtn_Click);
             // 
             // budgetTab
             // 
@@ -286,9 +273,9 @@
             // amountDataGridViewTextBoxColumn
             // 
             this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
-            dataGridViewCellStyle1.Format = "C2";
-            dataGridViewCellStyle1.NullValue = "0.00";
-            this.amountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = "0.00";
+            this.amountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
             this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
             this.amountDataGridViewTextBoxColumn.ReadOnly = true;
@@ -296,9 +283,9 @@
             // dateDataGridViewTextBoxColumn
             // 
             this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = "2017-01-01";
-            this.dateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Format = "d";
+            dataGridViewCellStyle6.NullValue = "2017-01-01";
+            this.dateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
             this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
             this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
             this.dateDataGridViewTextBoxColumn.ReadOnly = true;
@@ -478,16 +465,16 @@
             // 
             this.debugDbEditorButton.AutoSize = true;
             this.debugDbEditorButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.debugDbEditorButton.FlatAppearance.BorderSize = 0;
+            this.debugDbEditorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.debugDbEditorButton.Image = global::BudgetManager.Properties.Resources.debug_editor;
             this.debugDbEditorButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.debugDbEditorButton.Location = new System.Drawing.Point(583, 555);
+            this.debugDbEditorButton.Location = new System.Drawing.Point(678, -4);
             this.debugDbEditorButton.Name = "debugDbEditorButton";
             this.debugDbEditorButton.Padding = new System.Windows.Forms.Padding(5);
-            this.debugDbEditorButton.Size = new System.Drawing.Size(129, 38);
+            this.debugDbEditorButton.Size = new System.Drawing.Size(38, 38);
             this.debugDbEditorButton.TabIndex = 4;
-            this.debugDbEditorButton.Text = "Debug DB Editor";
             this.debugDbEditorButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.debugDbEditorButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.debugDbEditorButton.UseVisualStyleBackColor = true;
             this.debugDbEditorButton.Click += new System.EventHandler(this.debugDbEditorButton_Click);
             // 
@@ -498,16 +485,6 @@
             // goalTableAdapter
             // 
             this.goalTableAdapter.ClearBeforeFill = true;
-            // 
-            // refreshButton
-            // 
-            this.refreshButton.Location = new System.Drawing.Point(52, 566);
-            this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(122, 23);
-            this.refreshButton.TabIndex = 7;
-            this.refreshButton.Text = "debug refresh";
-            this.refreshButton.UseVisualStyleBackColor = true;
-            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
             // accountTableAdapter
             // 
@@ -575,18 +552,18 @@
             // amountDataGridViewTextBoxColumn1
             // 
             this.amountDataGridViewTextBoxColumn1.DataPropertyName = "Amount";
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = "0.00";
-            this.amountDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Format = "C2";
+            dataGridViewCellStyle7.NullValue = "0.00";
+            this.amountDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle7;
             this.amountDataGridViewTextBoxColumn1.HeaderText = "Amount";
             this.amountDataGridViewTextBoxColumn1.Name = "amountDataGridViewTextBoxColumn1";
             this.amountDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // goalBalance
             // 
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = "$0.00";
-            this.goalBalance.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Format = "C2";
+            dataGridViewCellStyle8.NullValue = "$0.00";
+            this.goalBalance.DefaultCellStyle = dataGridViewCellStyle8;
             this.goalBalance.HeaderText = "Balance";
             this.goalBalance.Name = "goalBalance";
             this.goalBalance.ReadOnly = true;
@@ -602,11 +579,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(725, 604);
-            this.Controls.Add(this.refreshButton);
-            this.Controls.Add(this.budgetTab);
-            this.Controls.Add(this.mockUpBtn);
+            this.ClientSize = new System.Drawing.Size(725, 557);
             this.Controls.Add(this.debugDbEditorButton);
+            this.Controls.Add(this.budgetTab);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Budget Manager";
@@ -630,7 +605,6 @@
 
         #endregion
         private System.Windows.Forms.Button debugDbEditorButton;
-        private System.Windows.Forms.Button mockUpBtn;
         private System.Windows.Forms.TabControl budgetTab;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button editAccountButton;
@@ -648,7 +622,6 @@
         private System.Windows.Forms.BindingSource goalBindingSource;
         private DatabaseDataSetTableAdapters.GoalTableAdapter goalTableAdapter;
         private System.Windows.Forms.DataGridView goalGridView;
-        private System.Windows.Forms.Button refreshButton;
         private System.Windows.Forms.BindingSource accountBindingSource;
         private DatabaseDataSetTableAdapters.AccountTableAdapter accountTableAdapter;
         private DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;

@@ -76,6 +76,11 @@ namespace BudgetManager
 
         private void editAccountButton_Click(object sender, EventArgs e)
         {
+            if (accountBindingSource.Count < 1)
+            {
+                addAccountButton_Click(sender, e);
+                return;
+            }
             var accountID = (int)((DataRowView)accountBindingSource.Current).Row["AccountID"];
             var accountForm = new AccountForm(accountID);
             accountForm.ShowDialog();
@@ -88,6 +93,11 @@ namespace BudgetManager
 
         private void addTransactionButton_Click(object sender, EventArgs e)
         {
+            if (accountBindingSource.Count < 1)
+            {
+                MessageBox.Show("Create an account first.");
+                return;
+            }
             var newTransaction = databaseDataSet.Transaction.NewTransactionRow();
             newTransaction.AccountID = (int)((DataRowView)accountBindingSource.Current).Row["AccountID"];
             newTransaction.Amount = 0.0f;
@@ -111,6 +121,11 @@ namespace BudgetManager
 
         private void editTransactionButton_Click(object sender, EventArgs e)
         {
+            if (transactionBindingSource.Count < 1)
+            {
+                addTransactionButton_Click(sender, e);
+                return;
+            }
             var selectedIndex = transactionGridView.SelectedRows[0].Index;
             var transactionID = (int)transactionGridView.CurrentRow.Cells[0].Value;
             var transactionForm = new TransactionForm(transactionID);
@@ -160,6 +175,11 @@ namespace BudgetManager
 
         private void editBudgetButton_Click(object sender, EventArgs e)
         {
+            if (budgetBindingSource.Count < 1)
+            {
+                addBudgetButton_Click(sender, e);
+                return;
+            }
             var budgetID = (int)((DataRowView)budgetBindingSource.Current).Row["BudgetID"];
             var budgetForm = new BudgetForm(budgetID);
             budgetForm.ShowDialog();
@@ -184,6 +204,12 @@ namespace BudgetManager
 
         private void addGoalButton_Click(object sender, EventArgs e)
         {
+            if (budgetBindingSource.Count < 1)
+            {
+                MessageBox.Show("Create a budget first.");
+                return;
+            }
+
             var newGoal = databaseDataSet.Goal.NewGoalRow();
             newGoal.BudgetID = (int)((DataRowView)budgetBindingSource.Current).Row["BudgetID"];
             newGoal.Amount = 0.0f;
@@ -205,6 +231,11 @@ namespace BudgetManager
 
         private void editGoalButton_Click(object sender, EventArgs e)
         {
+            if (goalBindingSource.Count < 1)
+            {
+                addGoalButton_Click(sender, e);
+                return;
+            }
             var selectedIndex = goalGridView.SelectedRows[0].Index;
             var goalID = (int)goalGridView.CurrentRow.Cells[0].Value;
             var goalForm = new GoalForm(goalID);
