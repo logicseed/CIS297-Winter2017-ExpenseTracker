@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.Label budgetIDLabel;
             System.Windows.Forms.Label startDateLabel1;
             System.Windows.Forms.Label endDateLabel1;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mockUpBtn = new System.Windows.Forms.Button();
             this.budgetTab = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -47,21 +46,26 @@
             this.label3 = new System.Windows.Forms.Label();
             this.addTransactionsButton = new System.Windows.Forms.Button();
             this.transactionGridView = new System.Windows.Forms.DataGridView();
+            this.transactionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accountIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewComboBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.memoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transactionDataGridViewSpacer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.transactionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.editAccountButton = new System.Windows.Forms.Button();
             this.addAccountButton = new System.Windows.Forms.Button();
             this.accountNameComboBox = new System.Windows.Forms.ComboBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.budgetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.startDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.endDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.startDateLabel = new System.Windows.Forms.Label();
             this.goalGridView = new System.Windows.Forms.DataGridView();
-            this.goalIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.budgetIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.goalCategoryDataGridViewComboBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.amountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.goalDataGridViewSpacer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.goalBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.budgetDelete = new System.Windows.Forms.Button();
-            this.budgetAdd = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.editBudgetButton = new System.Windows.Forms.Button();
+            this.addBudgetButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.budgetCombo = new System.Windows.Forms.ComboBox();
             this.debugDbEditorButton = new System.Windows.Forms.Button();
@@ -70,21 +74,14 @@
             this.refreshButton = new System.Windows.Forms.Button();
             this.accountTableAdapter = new BudgetManager.DatabaseDataSetTableAdapters.AccountTableAdapter();
             this.tableAdapterManager = new BudgetManager.DatabaseDataSetTableAdapters.TableAdapterManager();
-            this.startDateLabel = new System.Windows.Forms.Label();
-            this.endDateLabel = new System.Windows.Forms.Label();
-            this.budgetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.budgetTableAdapter = new BudgetManager.DatabaseDataSetTableAdapters.BudgetTableAdapter();
-            this.budgetIDNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.startDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.endDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.transactionIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accountIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewComboBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.memoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.transactionDataGridViewSpacer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            budgetIDLabel = new System.Windows.Forms.Label();
+            this.editGoalButton = new System.Windows.Forms.Button();
+            this.addGoalButton = new System.Windows.Forms.Button();
+            this.goalIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.budgetIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goalCategoryDataGridViewComboBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goalDataGridViewSpacer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             startDateLabel1 = new System.Windows.Forms.Label();
             endDateLabel1 = new System.Windows.Forms.Label();
             this.budgetTab.SuspendLayout();
@@ -94,11 +91,28 @@
             ((System.ComponentModel.ISupportInitialize)(this.transactionGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.transactionBindingSource)).BeginInit();
             this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.budgetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.goalGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.goalBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.budgetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.budgetIDNumericUpDown)).BeginInit();
             this.SuspendLayout();
+            // 
+            // startDateLabel1
+            // 
+            startDateLabel1.AutoSize = true;
+            startDateLabel1.Location = new System.Drawing.Point(241, 10);
+            startDateLabel1.Name = "startDateLabel1";
+            startDateLabel1.Size = new System.Drawing.Size(70, 16);
+            startDateLabel1.TabIndex = 13;
+            startDateLabel1.Text = "Start Date:";
+            // 
+            // endDateLabel1
+            // 
+            endDateLabel1.AutoSize = true;
+            endDateLabel1.Location = new System.Drawing.Point(241, 38);
+            endDateLabel1.Name = "endDateLabel1";
+            endDateLabel1.Size = new System.Drawing.Size(67, 16);
+            endDateLabel1.TabIndex = 15;
+            endDateLabel1.Text = "End Date:";
             // 
             // mockUpBtn
             // 
@@ -145,7 +159,7 @@
             // 
             // editTransactionButton
             // 
-            this.editTransactionButton.Location = new System.Drawing.Point(549, 415);
+            this.editTransactionButton.Location = new System.Drawing.Point(549, 474);
             this.editTransactionButton.Name = "editTransactionButton";
             this.editTransactionButton.Size = new System.Drawing.Size(141, 28);
             this.editTransactionButton.TabIndex = 16;
@@ -176,6 +190,7 @@
             // 
             this.accountBindingSource.DataMember = "Account";
             this.accountBindingSource.DataSource = this.databaseDataSet;
+            this.accountBindingSource.CurrentChanged += new System.EventHandler(this.accountBindingSource_CurrentChanged);
             // 
             // databaseDataSet
             // 
@@ -202,7 +217,7 @@
             // 
             // addTransactionsButton
             // 
-            this.addTransactionsButton.Location = new System.Drawing.Point(402, 415);
+            this.addTransactionsButton.Location = new System.Drawing.Point(402, 474);
             this.addTransactionsButton.Name = "addTransactionsButton";
             this.addTransactionsButton.Size = new System.Drawing.Size(141, 28);
             this.addTransactionsButton.TabIndex = 11;
@@ -230,8 +245,68 @@
             this.transactionGridView.ReadOnly = true;
             this.transactionGridView.RowHeadersVisible = false;
             this.transactionGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.transactionGridView.Size = new System.Drawing.Size(683, 257);
+            this.transactionGridView.Size = new System.Drawing.Size(683, 316);
             this.transactionGridView.TabIndex = 10;
+            // 
+            // transactionIDDataGridViewTextBoxColumn
+            // 
+            this.transactionIDDataGridViewTextBoxColumn.DataPropertyName = "TransactionID";
+            this.transactionIDDataGridViewTextBoxColumn.HeaderText = "TransactionID";
+            this.transactionIDDataGridViewTextBoxColumn.Name = "transactionIDDataGridViewTextBoxColumn";
+            this.transactionIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.transactionIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // accountIDDataGridViewTextBoxColumn
+            // 
+            this.accountIDDataGridViewTextBoxColumn.DataPropertyName = "AccountID";
+            this.accountIDDataGridViewTextBoxColumn.HeaderText = "AccountID";
+            this.accountIDDataGridViewTextBoxColumn.Name = "accountIDDataGridViewTextBoxColumn";
+            this.accountIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.accountIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // categoryDataGridViewComboBoxColumn
+            // 
+            this.categoryDataGridViewComboBoxColumn.DataPropertyName = "Category";
+            this.categoryDataGridViewComboBoxColumn.HeaderText = "Category";
+            this.categoryDataGridViewComboBoxColumn.Name = "categoryDataGridViewComboBoxColumn";
+            this.categoryDataGridViewComboBoxColumn.ReadOnly = true;
+            this.categoryDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.categoryDataGridViewComboBoxColumn.Width = 200;
+            // 
+            // memoDataGridViewTextBoxColumn
+            // 
+            this.memoDataGridViewTextBoxColumn.DataPropertyName = "Memo";
+            this.memoDataGridViewTextBoxColumn.HeaderText = "Memo";
+            this.memoDataGridViewTextBoxColumn.Name = "memoDataGridViewTextBoxColumn";
+            this.memoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.memoDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // amountDataGridViewTextBoxColumn
+            // 
+            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
+            dataGridViewCellStyle31.Format = "C2";
+            dataGridViewCellStyle31.NullValue = "0.00";
+            this.amountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle31;
+            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
+            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
+            this.amountDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            dataGridViewCellStyle32.Format = "d";
+            dataGridViewCellStyle32.NullValue = "2017-01-01";
+            this.dateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle32;
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // transactionDataGridViewSpacer
+            // 
+            this.transactionDataGridViewSpacer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.transactionDataGridViewSpacer.HeaderText = "";
+            this.transactionDataGridViewSpacer.Name = "transactionDataGridViewSpacer";
+            this.transactionDataGridViewSpacer.ReadOnly = true;
             // 
             // transactionBindingSource
             // 
@@ -269,23 +344,20 @@
             this.accountNameComboBox.Size = new System.Drawing.Size(245, 24);
             this.accountNameComboBox.TabIndex = 0;
             this.accountNameComboBox.ValueMember = "AccountID";
-            this.accountNameComboBox.SelectionChangeCommitted += new System.EventHandler(this.accountNameComboBox_SelectedIndexChanged);
             // 
             // tabPage4
             // 
             this.tabPage4.AutoScroll = true;
-            this.tabPage4.Controls.Add(budgetIDLabel);
-            this.tabPage4.Controls.Add(this.budgetIDNumericUpDown);
+            this.tabPage4.Controls.Add(this.editGoalButton);
+            this.tabPage4.Controls.Add(this.addGoalButton);
             this.tabPage4.Controls.Add(startDateLabel1);
             this.tabPage4.Controls.Add(this.startDateDateTimePicker);
             this.tabPage4.Controls.Add(endDateLabel1);
             this.tabPage4.Controls.Add(this.endDateDateTimePicker);
-            this.tabPage4.Controls.Add(this.endDateLabel);
             this.tabPage4.Controls.Add(this.startDateLabel);
             this.tabPage4.Controls.Add(this.goalGridView);
-            this.tabPage4.Controls.Add(this.budgetDelete);
-            this.tabPage4.Controls.Add(this.budgetAdd);
-            this.tabPage4.Controls.Add(this.label2);
+            this.tabPage4.Controls.Add(this.editBudgetButton);
+            this.tabPage4.Controls.Add(this.addBudgetButton);
             this.tabPage4.Controls.Add(this.label1);
             this.tabPage4.Controls.Add(this.budgetCombo);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
@@ -296,8 +368,45 @@
             this.tabPage4.Text = "Budgets";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // budgetBindingSource
+            // 
+            this.budgetBindingSource.DataMember = "Budget";
+            this.budgetBindingSource.DataSource = this.databaseDataSet;
+            this.budgetBindingSource.CurrentChanged += new System.EventHandler(this.budgetBindingSource_CurrentChanged);
+            // 
+            // startDateDateTimePicker
+            // 
+            this.startDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.budgetBindingSource, "StartDate", true));
+            this.startDateDateTimePicker.Enabled = false;
+            this.startDateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.startDateDateTimePicker.Location = new System.Drawing.Point(317, 6);
+            this.startDateDateTimePicker.Name = "startDateDateTimePicker";
+            this.startDateDateTimePicker.Size = new System.Drawing.Size(109, 22);
+            this.startDateDateTimePicker.TabIndex = 14;
+            // 
+            // endDateDateTimePicker
+            // 
+            this.endDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.budgetBindingSource, "EndDate", true));
+            this.endDateDateTimePicker.Enabled = false;
+            this.endDateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.endDateDateTimePicker.Location = new System.Drawing.Point(317, 34);
+            this.endDateDateTimePicker.Name = "endDateDateTimePicker";
+            this.endDateDateTimePicker.Size = new System.Drawing.Size(109, 22);
+            this.endDateDateTimePicker.TabIndex = 16;
+            // 
+            // startDateLabel
+            // 
+            this.startDateLabel.AutoSize = true;
+            this.startDateLabel.Location = new System.Drawing.Point(146, 81);
+            this.startDateLabel.Name = "startDateLabel";
+            this.startDateLabel.Size = new System.Drawing.Size(45, 16);
+            this.startDateLabel.TabIndex = 10;
+            this.startDateLabel.Text = "label6";
+            // 
             // goalGridView
             // 
+            this.goalGridView.AllowUserToAddRows = false;
+            this.goalGridView.AllowUserToDeleteRows = false;
             this.goalGridView.AutoGenerateColumns = false;
             this.goalGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.goalGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -307,103 +416,60 @@
             this.amountDataGridViewTextBoxColumn1,
             this.goalDataGridViewSpacer});
             this.goalGridView.DataSource = this.goalBindingSource;
-            this.goalGridView.Location = new System.Drawing.Point(7, 241);
+            this.goalGridView.Location = new System.Drawing.Point(7, 136);
             this.goalGridView.Name = "goalGridView";
+            this.goalGridView.ReadOnly = true;
             this.goalGridView.RowHeadersVisible = false;
-            this.goalGridView.Size = new System.Drawing.Size(683, 261);
+            this.goalGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.goalGridView.Size = new System.Drawing.Size(683, 332);
             this.goalGridView.TabIndex = 9;
-            // 
-            // goalIDDataGridViewTextBoxColumn
-            // 
-            this.goalIDDataGridViewTextBoxColumn.DataPropertyName = "GoalID";
-            this.goalIDDataGridViewTextBoxColumn.HeaderText = "GoalID";
-            this.goalIDDataGridViewTextBoxColumn.Name = "goalIDDataGridViewTextBoxColumn";
-            this.goalIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.goalIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // budgetIDDataGridViewTextBoxColumn
-            // 
-            this.budgetIDDataGridViewTextBoxColumn.DataPropertyName = "BudgetID";
-            this.budgetIDDataGridViewTextBoxColumn.HeaderText = "BudgetID";
-            this.budgetIDDataGridViewTextBoxColumn.Name = "budgetIDDataGridViewTextBoxColumn";
-            this.budgetIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // goalCategoryDataGridViewComboBoxColumn
-            // 
-            this.goalCategoryDataGridViewComboBoxColumn.DataPropertyName = "Category";
-            this.goalCategoryDataGridViewComboBoxColumn.HeaderText = "Category";
-            this.goalCategoryDataGridViewComboBoxColumn.Name = "goalCategoryDataGridViewComboBoxColumn";
-            this.goalCategoryDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.goalCategoryDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.goalCategoryDataGridViewComboBoxColumn.Width = 200;
-            // 
-            // amountDataGridViewTextBoxColumn1
-            // 
-            this.amountDataGridViewTextBoxColumn1.DataPropertyName = "Amount";
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = "0.00";
-            this.amountDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.amountDataGridViewTextBoxColumn1.HeaderText = "Amount";
-            this.amountDataGridViewTextBoxColumn1.Name = "amountDataGridViewTextBoxColumn1";
-            // 
-            // goalDataGridViewSpacer
-            // 
-            this.goalDataGridViewSpacer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.goalDataGridViewSpacer.HeaderText = "";
-            this.goalDataGridViewSpacer.Name = "goalDataGridViewSpacer";
-            this.goalDataGridViewSpacer.ReadOnly = true;
             // 
             // goalBindingSource
             // 
             this.goalBindingSource.DataMember = "Goal";
             this.goalBindingSource.DataSource = this.databaseDataSet;
             // 
-            // budgetDelete
+            // editBudgetButton
             // 
-            this.budgetDelete.Location = new System.Drawing.Point(567, 30);
-            this.budgetDelete.Name = "budgetDelete";
-            this.budgetDelete.Size = new System.Drawing.Size(118, 28);
-            this.budgetDelete.TabIndex = 7;
-            this.budgetDelete.Text = "Edit Budget";
-            this.budgetDelete.UseVisualStyleBackColor = true;
+            this.editBudgetButton.Location = new System.Drawing.Point(567, 16);
+            this.editBudgetButton.Name = "editBudgetButton";
+            this.editBudgetButton.Size = new System.Drawing.Size(118, 28);
+            this.editBudgetButton.TabIndex = 7;
+            this.editBudgetButton.Text = "Edit Budget";
+            this.editBudgetButton.UseVisualStyleBackColor = true;
+            this.editBudgetButton.Click += new System.EventHandler(this.editBudgetButton_Click);
             // 
-            // budgetAdd
+            // addBudgetButton
             // 
-            this.budgetAdd.Location = new System.Drawing.Point(443, 30);
-            this.budgetAdd.Name = "budgetAdd";
-            this.budgetAdd.Size = new System.Drawing.Size(118, 28);
-            this.budgetAdd.TabIndex = 6;
-            this.budgetAdd.Text = "Add Budget";
-            this.budgetAdd.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(282, 51);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 16);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "End:";
+            this.addBudgetButton.Location = new System.Drawing.Point(443, 16);
+            this.addBudgetButton.Name = "addBudgetButton";
+            this.addBudgetButton.Size = new System.Drawing.Size(118, 28);
+            this.addBudgetButton.TabIndex = 6;
+            this.addBudgetButton.Text = "Add Budget";
+            this.addBudgetButton.UseVisualStyleBackColor = true;
+            this.addBudgetButton.Click += new System.EventHandler(this.addBudgetButton_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(282, 30);
+            this.label1.Location = new System.Drawing.Point(33, 81);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 16);
+            this.label1.Size = new System.Drawing.Size(107, 16);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Start:";
+            this.label1.Text = "Budget Balance:";
             // 
             // budgetCombo
             // 
+            this.budgetCombo.DataSource = this.budgetBindingSource;
+            this.budgetCombo.DisplayMember = "Name";
             this.budgetCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.budgetCombo.FormattingEnabled = true;
-            this.budgetCombo.Location = new System.Drawing.Point(36, 34);
+            this.budgetCombo.Location = new System.Drawing.Point(7, 19);
             this.budgetCombo.Name = "budgetCombo";
-            this.budgetCombo.Size = new System.Drawing.Size(169, 24);
+            this.budgetCombo.Size = new System.Drawing.Size(228, 24);
             this.budgetCombo.TabIndex = 0;
+            this.budgetCombo.ValueMember = "BudgetID";
             // 
             // debugDbEditorButton
             // 
@@ -454,143 +520,71 @@
             this.tableAdapterManager.TransactionTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = BudgetManager.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // startDateLabel
-            // 
-            this.startDateLabel.AutoSize = true;
-            this.startDateLabel.Location = new System.Drawing.Point(327, 30);
-            this.startDateLabel.Name = "startDateLabel";
-            this.startDateLabel.Size = new System.Drawing.Size(45, 16);
-            this.startDateLabel.TabIndex = 10;
-            this.startDateLabel.Text = "label6";
-            // 
-            // endDateLabel
-            // 
-            this.endDateLabel.AutoSize = true;
-            this.endDateLabel.Location = new System.Drawing.Point(327, 51);
-            this.endDateLabel.Name = "endDateLabel";
-            this.endDateLabel.Size = new System.Drawing.Size(45, 16);
-            this.endDateLabel.TabIndex = 11;
-            this.endDateLabel.Text = "label7";
-            // 
-            // budgetBindingSource
-            // 
-            this.budgetBindingSource.DataMember = "Budget";
-            this.budgetBindingSource.DataSource = this.databaseDataSet;
-            // 
             // budgetTableAdapter
             // 
             this.budgetTableAdapter.ClearBeforeFill = true;
             // 
-            // budgetIDLabel
+            // editGoalButton
             // 
-            budgetIDLabel.AutoSize = true;
-            budgetIDLabel.Location = new System.Drawing.Point(155, 130);
-            budgetIDLabel.Name = "budgetIDLabel";
-            budgetIDLabel.Size = new System.Drawing.Size(70, 16);
-            budgetIDLabel.TabIndex = 11;
-            budgetIDLabel.Text = "Budget ID:";
+            this.editGoalButton.Location = new System.Drawing.Point(549, 474);
+            this.editGoalButton.Name = "editGoalButton";
+            this.editGoalButton.Size = new System.Drawing.Size(141, 28);
+            this.editGoalButton.TabIndex = 18;
+            this.editGoalButton.Text = "Edit Goal";
+            this.editGoalButton.UseVisualStyleBackColor = true;
+            this.editGoalButton.Click += new System.EventHandler(this.editGoalButton_Click);
             // 
-            // budgetIDNumericUpDown
+            // addGoalButton
             // 
-            this.budgetIDNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.budgetBindingSource, "BudgetID", true));
-            this.budgetIDNumericUpDown.Location = new System.Drawing.Point(231, 130);
-            this.budgetIDNumericUpDown.Name = "budgetIDNumericUpDown";
-            this.budgetIDNumericUpDown.Size = new System.Drawing.Size(200, 22);
-            this.budgetIDNumericUpDown.TabIndex = 12;
+            this.addGoalButton.Location = new System.Drawing.Point(402, 474);
+            this.addGoalButton.Name = "addGoalButton";
+            this.addGoalButton.Size = new System.Drawing.Size(141, 28);
+            this.addGoalButton.TabIndex = 17;
+            this.addGoalButton.Text = "Add Goal";
+            this.addGoalButton.UseVisualStyleBackColor = true;
+            this.addGoalButton.Click += new System.EventHandler(this.addGoalButton_Click);
             // 
-            // startDateLabel1
+            // goalIDDataGridViewTextBoxColumn
             // 
-            startDateLabel1.AutoSize = true;
-            startDateLabel1.Location = new System.Drawing.Point(155, 162);
-            startDateLabel1.Name = "startDateLabel1";
-            startDateLabel1.Size = new System.Drawing.Size(70, 16);
-            startDateLabel1.TabIndex = 13;
-            startDateLabel1.Text = "Start Date:";
+            this.goalIDDataGridViewTextBoxColumn.DataPropertyName = "GoalID";
+            this.goalIDDataGridViewTextBoxColumn.HeaderText = "GoalID";
+            this.goalIDDataGridViewTextBoxColumn.Name = "goalIDDataGridViewTextBoxColumn";
+            this.goalIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.goalIDDataGridViewTextBoxColumn.Visible = false;
             // 
-            // startDateDateTimePicker
+            // budgetIDDataGridViewTextBoxColumn
             // 
-            this.startDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.budgetBindingSource, "StartDate", true));
-            this.startDateDateTimePicker.Location = new System.Drawing.Point(231, 158);
-            this.startDateDateTimePicker.Name = "startDateDateTimePicker";
-            this.startDateDateTimePicker.Size = new System.Drawing.Size(200, 22);
-            this.startDateDateTimePicker.TabIndex = 14;
+            this.budgetIDDataGridViewTextBoxColumn.DataPropertyName = "BudgetID";
+            this.budgetIDDataGridViewTextBoxColumn.HeaderText = "BudgetID";
+            this.budgetIDDataGridViewTextBoxColumn.Name = "budgetIDDataGridViewTextBoxColumn";
+            this.budgetIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.budgetIDDataGridViewTextBoxColumn.Visible = false;
             // 
-            // endDateLabel1
+            // goalCategoryDataGridViewComboBoxColumn
             // 
-            endDateLabel1.AutoSize = true;
-            endDateLabel1.Location = new System.Drawing.Point(155, 190);
-            endDateLabel1.Name = "endDateLabel1";
-            endDateLabel1.Size = new System.Drawing.Size(67, 16);
-            endDateLabel1.TabIndex = 15;
-            endDateLabel1.Text = "End Date:";
+            this.goalCategoryDataGridViewComboBoxColumn.DataPropertyName = "Category";
+            this.goalCategoryDataGridViewComboBoxColumn.HeaderText = "Category";
+            this.goalCategoryDataGridViewComboBoxColumn.Name = "goalCategoryDataGridViewComboBoxColumn";
+            this.goalCategoryDataGridViewComboBoxColumn.ReadOnly = true;
+            this.goalCategoryDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.goalCategoryDataGridViewComboBoxColumn.Width = 200;
             // 
-            // endDateDateTimePicker
+            // amountDataGridViewTextBoxColumn1
             // 
-            this.endDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.budgetBindingSource, "EndDate", true));
-            this.endDateDateTimePicker.Location = new System.Drawing.Point(231, 186);
-            this.endDateDateTimePicker.Name = "endDateDateTimePicker";
-            this.endDateDateTimePicker.Size = new System.Drawing.Size(200, 22);
-            this.endDateDateTimePicker.TabIndex = 16;
+            this.amountDataGridViewTextBoxColumn1.DataPropertyName = "Amount";
+            dataGridViewCellStyle33.Format = "C2";
+            dataGridViewCellStyle33.NullValue = "0.00";
+            this.amountDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle33;
+            this.amountDataGridViewTextBoxColumn1.HeaderText = "Amount";
+            this.amountDataGridViewTextBoxColumn1.Name = "amountDataGridViewTextBoxColumn1";
+            this.amountDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // transactionIDDataGridViewTextBoxColumn
+            // goalDataGridViewSpacer
             // 
-            this.transactionIDDataGridViewTextBoxColumn.DataPropertyName = "TransactionID";
-            this.transactionIDDataGridViewTextBoxColumn.HeaderText = "TransactionID";
-            this.transactionIDDataGridViewTextBoxColumn.Name = "transactionIDDataGridViewTextBoxColumn";
-            this.transactionIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.transactionIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // accountIDDataGridViewTextBoxColumn
-            // 
-            this.accountIDDataGridViewTextBoxColumn.DataPropertyName = "AccountID";
-            this.accountIDDataGridViewTextBoxColumn.HeaderText = "AccountID";
-            this.accountIDDataGridViewTextBoxColumn.Name = "accountIDDataGridViewTextBoxColumn";
-            this.accountIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.accountIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // categoryDataGridViewComboBoxColumn
-            // 
-            this.categoryDataGridViewComboBoxColumn.DataPropertyName = "Category";
-            this.categoryDataGridViewComboBoxColumn.HeaderText = "Category";
-            this.categoryDataGridViewComboBoxColumn.Name = "categoryDataGridViewComboBoxColumn";
-            this.categoryDataGridViewComboBoxColumn.ReadOnly = true;
-            this.categoryDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.categoryDataGridViewComboBoxColumn.Width = 200;
-            // 
-            // memoDataGridViewTextBoxColumn
-            // 
-            this.memoDataGridViewTextBoxColumn.DataPropertyName = "Memo";
-            this.memoDataGridViewTextBoxColumn.HeaderText = "Memo";
-            this.memoDataGridViewTextBoxColumn.Name = "memoDataGridViewTextBoxColumn";
-            this.memoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.memoDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // amountDataGridViewTextBoxColumn
-            // 
-            this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
-            dataGridViewCellStyle1.Format = "C2";
-            dataGridViewCellStyle1.NullValue = "0.00";
-            this.amountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
-            this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
-            this.amountDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = "2017-01-01";
-            this.dateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // transactionDataGridViewSpacer
-            // 
-            this.transactionDataGridViewSpacer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.transactionDataGridViewSpacer.HeaderText = "";
-            this.transactionDataGridViewSpacer.Name = "transactionDataGridViewSpacer";
-            this.transactionDataGridViewSpacer.ReadOnly = true;
+            this.goalDataGridViewSpacer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.goalDataGridViewSpacer.HeaderText = "";
+            this.goalDataGridViewSpacer.Name = "goalDataGridViewSpacer";
+            this.goalDataGridViewSpacer.ReadOnly = true;
             // 
             // MainForm
             // 
@@ -614,10 +608,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.transactionBindingSource)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.budgetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.goalGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.goalBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.budgetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.budgetIDNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -632,9 +625,8 @@
         private System.Windows.Forms.Button addAccountButton;
         private System.Windows.Forms.ComboBox accountNameComboBox;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.Button budgetDelete;
-        private System.Windows.Forms.Button budgetAdd;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button editBudgetButton;
+        private System.Windows.Forms.Button addBudgetButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox budgetCombo;
         private System.Windows.Forms.DataGridView transactionGridView;
@@ -644,11 +636,6 @@
         private System.Windows.Forms.BindingSource goalBindingSource;
         private DatabaseDataSetTableAdapters.GoalTableAdapter goalTableAdapter;
         private System.Windows.Forms.DataGridView goalGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn goalIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn budgetIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn goalCategoryDataGridViewComboBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn goalDataGridViewSpacer;
         private System.Windows.Forms.Button refreshButton;
         private System.Windows.Forms.BindingSource accountBindingSource;
         private DatabaseDataSetTableAdapters.AccountTableAdapter accountTableAdapter;
@@ -659,11 +646,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button editTransactionButton;
-        private System.Windows.Forms.Label endDateLabel;
         private System.Windows.Forms.Label startDateLabel;
         private System.Windows.Forms.BindingSource budgetBindingSource;
         private DatabaseDataSetTableAdapters.BudgetTableAdapter budgetTableAdapter;
-        private System.Windows.Forms.NumericUpDown budgetIDNumericUpDown;
         private System.Windows.Forms.DateTimePicker startDateDateTimePicker;
         private System.Windows.Forms.DateTimePicker endDateDateTimePicker;
         private System.Windows.Forms.DataGridViewTextBoxColumn transactionIDDataGridViewTextBoxColumn;
@@ -673,6 +658,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn transactionDataGridViewSpacer;
+        private System.Windows.Forms.Button editGoalButton;
+        private System.Windows.Forms.Button addGoalButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn goalIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn budgetIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn goalCategoryDataGridViewComboBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn goalDataGridViewSpacer;
     }
 }
 

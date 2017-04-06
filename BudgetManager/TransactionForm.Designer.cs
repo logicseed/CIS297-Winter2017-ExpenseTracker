@@ -52,6 +52,42 @@
             ((System.ComponentModel.ISupportInitialize)(this.amountNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
+            // categoryLabel
+            // 
+            categoryLabel.AutoSize = true;
+            categoryLabel.Location = new System.Drawing.Point(14, 16);
+            categoryLabel.Name = "categoryLabel";
+            categoryLabel.Size = new System.Drawing.Size(52, 13);
+            categoryLabel.TabIndex = 19;
+            categoryLabel.Text = "Category:";
+            // 
+            // memoLabel
+            // 
+            memoLabel.AutoSize = true;
+            memoLabel.Location = new System.Drawing.Point(14, 43);
+            memoLabel.Name = "memoLabel";
+            memoLabel.Size = new System.Drawing.Size(39, 13);
+            memoLabel.TabIndex = 21;
+            memoLabel.Text = "Memo:";
+            // 
+            // amountLabel
+            // 
+            amountLabel.AutoSize = true;
+            amountLabel.Location = new System.Drawing.Point(14, 66);
+            amountLabel.Name = "amountLabel";
+            amountLabel.Size = new System.Drawing.Size(46, 13);
+            amountLabel.TabIndex = 23;
+            amountLabel.Text = "Amount:";
+            // 
+            // dateLabel
+            // 
+            dateLabel.AutoSize = true;
+            dateLabel.Location = new System.Drawing.Point(14, 96);
+            dateLabel.Name = "dateLabel";
+            dateLabel.Size = new System.Drawing.Size(33, 13);
+            dateLabel.TabIndex = 25;
+            dateLabel.Text = "Date:";
+            // 
             // discardButton
             // 
             this.discardButton.Location = new System.Drawing.Point(181, 139);
@@ -95,15 +131,6 @@
             this.tableAdapterManager.TransactionTableAdapter = this.transactionTableAdapter;
             this.tableAdapterManager.UpdateOrder = BudgetManager.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // categoryLabel
-            // 
-            categoryLabel.AutoSize = true;
-            categoryLabel.Location = new System.Drawing.Point(14, 16);
-            categoryLabel.Name = "categoryLabel";
-            categoryLabel.Size = new System.Drawing.Size(52, 13);
-            categoryLabel.TabIndex = 19;
-            categoryLabel.Text = "Category:";
-            // 
             // categoryComboBox
             // 
             this.categoryComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.transactionBindingSource, "Category", true));
@@ -114,15 +141,6 @@
             this.categoryComboBox.Size = new System.Drawing.Size(139, 21);
             this.categoryComboBox.TabIndex = 20;
             // 
-            // memoLabel
-            // 
-            memoLabel.AutoSize = true;
-            memoLabel.Location = new System.Drawing.Point(14, 43);
-            memoLabel.Name = "memoLabel";
-            memoLabel.Size = new System.Drawing.Size(39, 13);
-            memoLabel.TabIndex = 21;
-            memoLabel.Text = "Memo:";
-            // 
             // memoTextBox
             // 
             this.memoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.transactionBindingSource, "Memo", true));
@@ -130,15 +148,6 @@
             this.memoTextBox.Name = "memoTextBox";
             this.memoTextBox.Size = new System.Drawing.Size(139, 20);
             this.memoTextBox.TabIndex = 22;
-            // 
-            // amountLabel
-            // 
-            amountLabel.AutoSize = true;
-            amountLabel.Location = new System.Drawing.Point(14, 66);
-            amountLabel.Name = "amountLabel";
-            amountLabel.Size = new System.Drawing.Size(46, 13);
-            amountLabel.TabIndex = 23;
-            amountLabel.Text = "Amount:";
             // 
             // amountNumericUpDown
             // 
@@ -158,15 +167,6 @@
             this.amountNumericUpDown.Name = "amountNumericUpDown";
             this.amountNumericUpDown.Size = new System.Drawing.Size(139, 20);
             this.amountNumericUpDown.TabIndex = 24;
-            // 
-            // dateLabel
-            // 
-            dateLabel.AutoSize = true;
-            dateLabel.Location = new System.Drawing.Point(14, 96);
-            dateLabel.Name = "dateLabel";
-            dateLabel.Size = new System.Drawing.Size(33, 13);
-            dateLabel.TabIndex = 25;
-            dateLabel.Text = "Date:";
             // 
             // dateDateTimePicker
             // 
@@ -193,8 +193,15 @@
             this.Controls.Add(this.dateDateTimePicker);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.discardButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TransactionForm";
-            this.Text = "TransactionForm";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Edit Transaction";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TransactionForm_FormClosing);
             this.Load += new System.EventHandler(this.TransactionForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).EndInit();

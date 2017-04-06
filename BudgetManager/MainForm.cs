@@ -12,6 +12,8 @@ namespace BudgetManager
 {
     public partial class MainForm : Form
     {
+        TransactionQueries transactionQ = new TransactionQueries();
+
         public MainForm()
         {
             InitializeComponent();
@@ -20,7 +22,7 @@ namespace BudgetManager
         private void debugDbEditorButton_Click(object sender, EventArgs e)
         {
             var debugDbEditor = new DebugDbEditor();
-            debugDbEditor.ShowDialog();
+            debugDbEditor.Show();
         }
 
         private void mockUpBtn_Click(object sender, EventArgs e)
@@ -40,6 +42,7 @@ namespace BudgetManager
             // TODO: This line of code loads data into the 'databaseDataSet.Transaction' table. You can move, or remove it, as needed.
             this.transactionTableAdapter.Fill(this.databaseDataSet.Transaction);
             RefreshAccountInfo();
+            RefreshBudgetInfo();
         }
 
         private void refreshButton_Click(object sender, EventArgs e)
@@ -59,10 +62,11 @@ namespace BudgetManager
             newAccount.Type = AccountType.Cash;
             databaseDataSet.Account.Rows.Add(newAccount);
             accountTableAdapter.Update(databaseDataSet.Account);
-            var position = accountBindingSource.Find("AccountID", newAccount.AccountID);
+            var accountID = newAccount.AccountID;
+            var position = accountBindingSource.Find("AccountID", accountID);
             accountBindingSource.Position = position;
 
-            var accountForm = new AccountForm(newAccount.AccountID);
+            var accountForm = new AccountForm(accountID);
             accountForm.ShowDialog();
 
             accountTableAdapter.Fill(databaseDataSet.Account);
@@ -72,12 +76,12 @@ namespace BudgetManager
 
         private void editAccountButton_Click(object sender, EventArgs e)
         {
-            var account = (int)((DataRowView)accountBindingSource.Current).Row["AccountID"];
-            var accountForm = new AccountForm(account);
+            var accountID = (int)((DataRowView)accountBindingSource.Current).Row["AccountID"];
+            var accountForm = new AccountForm(accountID);
             accountForm.ShowDialog();
 
             accountTableAdapter.Fill(databaseDataSet.Account);
-            var position = accountBindingSource.Find("AccountID", account);
+            var position = accountBindingSource.Find("AccountID", accountID);
             accountBindingSource.Position = position;
             accountBindingSource.ResetCurrentItem();
         }
@@ -101,8 +105,8 @@ namespace BudgetManager
 
             transactionTableAdapter.Fill(databaseDataSet.Transaction);
             position = transactionBindingSource.Find("TransactionID", transactionID);
-            accountBindingSource.Position = position;
-            accountBindingSource.ResetCurrentItem();
+            transactionBindingSource.Position = position;
+            transactionBindingSource.ResetCurrentItem();
         }
 
         private void editTransactionButton_Click(object sender, EventArgs e)
@@ -114,15 +118,10 @@ namespace BudgetManager
 
             transactionTableAdapter.Fill(databaseDataSet.Transaction);
             var position = transactionBindingSource.Find("TransactionID", transactionID);
-            accountBindingSource.Position = position;
-            accountBindingSource.ResetCurrentItem();
+            transactionBindingSource.Position = position;
+            transactionBindingSource.ResetCurrentItem();
             transactionGridView.ClearSelection();
             transactionGridView.Rows[selectedIndex].Selected = true;
-        }
-
-        private void accountNameComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            RefreshAccountInfo();
         }
 
         private void RefreshAccountInfo()
@@ -132,7 +131,100 @@ namespace BudgetManager
                 var accountID = (int)((DataRowView)accountBindingSource.Current).Row["AccountID"];
                 transactionBindingSource.RemoveFilter();
                 transactionBindingSource.Filter = "AccountID = " + accountID;
+                transactionGridView.Refresh();
+
+                var accountBalance = transactionQ.AmountsByAccount(accountID);
+                accountBalanceLabel.Text = accountBalance.ToString("C2");
             }
+        }
+
+        private void addBudgetButton_Click(object sender, EventArgs e)
+        {
+            var newBudget = databaseDataSet.Budget.NewBudgetRow();
+            newBudget.Name = "New Budget";
+            newBudget.StartDate = DateTime.Now;
+            newBudget.EndDate = newBudget.StartDate.AddMonths(1);
+            databaseDataSet.Budget.Rows.Add(newBudget);
+            budgetTableAdapter.Update(databaseDataSet.Budget);
+            var budgetID = newBudget.BudgetID;
+            var position = budgetBindingSource.Find("BudgetID", budgetID);
+            budgetBindingSource.Position = position;
+
+            var budgetForm = new BudgetForm(budgetID);
+            budgetForm.ShowDialog();
+
+            budgetTableAdapter.Fill(databaseDataSet.Budget);
+            budgetBindingSource.Position = position;
+            budgetBindingSource.ResetCurrentItem();
+        }
+
+        private void editBudgetButton_Click(object sender, EventArgs e)
+        {
+            var budgetID = (int)((DataRowView)budgetBindingSource.Current).Row["BudgetID"];
+            var budgetForm = new BudgetForm(budgetID);
+            budgetForm.ShowDialog();
+
+            budgetTableAdapter.Fill(databaseDataSet.Budget);
+            var position = budgetBindingSource.Find("BudgetID", budgetID);
+            budgetBindingSource.Position = position;
+            budgetBindingSource.ResetCurrentItem();
+        }
+
+        private void RefreshBudgetInfo()
+        {
+            if (budgetBindingSource.Count > 0)
+            {
+                var budgetID = (int)((DataRowView)budgetBindingSource.Current).Row["BudgetID"];
+                goalBindingSource.RemoveFilter();
+                goalBindingSource.Filter = "BudgetID = " + budgetID;
+                goalGridView.Refresh();
+            }
+        }
+
+        private void addGoalButton_Click(object sender, EventArgs e)
+        {
+            var newGoal = databaseDataSet.Goal.NewGoalRow();
+            newGoal.BudgetID = (int)((DataRowView)budgetBindingSource.Current).Row["BudgetID"];
+            newGoal.Amount = 0.0f;
+            newGoal.Category = TransactionCategory.Uncategorized;
+            databaseDataSet.Goal.Rows.Add(newGoal);
+            goalTableAdapter.Update(databaseDataSet.Goal);
+            var goalID = newGoal.GoalID;
+            var position = goalBindingSource.Find("GoalID", goalID);
+            goalBindingSource.Position = position;
+
+            var goalForm = new GoalForm(goalID);
+            goalForm.ShowDialog();
+
+            goalTableAdapter.Fill(databaseDataSet.Goal);
+            position = goalBindingSource.Find("GoalID", goalID);
+            goalBindingSource.Position = position;
+            goalBindingSource.ResetCurrentItem();
+        }
+
+        private void editGoalButton_Click(object sender, EventArgs e)
+        {
+            var selectedIndex = goalGridView.SelectedRows[0].Index;
+            var goalID = (int)goalGridView.CurrentRow.Cells[0].Value;
+            var goalForm = new GoalForm(goalID);
+            goalForm.ShowDialog();
+
+            goalTableAdapter.Fill(databaseDataSet.Goal);
+            var position = goalBindingSource.Find("GoalID", goalID);
+            goalBindingSource.Position = position;
+            goalBindingSource.ResetCurrentItem();
+            goalGridView.ClearSelection();
+            goalGridView.Rows[selectedIndex].Selected = true;
+        }
+
+        private void accountBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+            RefreshAccountInfo();
+        }
+
+        private void budgetBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+            RefreshBudgetInfo();
         }
     }
 }

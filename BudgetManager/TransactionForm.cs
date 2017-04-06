@@ -30,14 +30,6 @@ namespace BudgetManager
             transactionBindingSource.ResetCurrentItem();
         }
 
-        private void transactionBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.transactionBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.databaseDataSet);
-
-        }
-
         private void saveButton_Click(object sender, EventArgs e)
         {
             transactionBindingSource.EndEdit();
