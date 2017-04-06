@@ -178,6 +178,7 @@ namespace BudgetManager
                 goalBindingSource.RemoveFilter();
                 goalBindingSource.Filter = "BudgetID = " + budgetID;
                 goalGridView.Refresh();
+                BuildGoalBalanceColumns();
             }
         }
 
@@ -225,6 +226,33 @@ namespace BudgetManager
         private void budgetBindingSource_CurrentChanged(object sender, EventArgs e)
         {
             RefreshBudgetInfo();
+        }
+
+        private void BuildGoalBalanceColumns()
+        {
+            goalGridView.ReadOnly = false;
+            // get start date and end date
+            var startDate = (DateTime)((DataRowView)budgetBindingSource.Current).Row["StartDate"];
+            var endDate = (DateTime)((DataRowView)budgetBindingSource.Current).Row["EndDate"];
+            // loop through rows
+            foreach (DataGridViewRow row in goalGridView.Rows)
+            {
+                // get category
+                var category = (TransactionCategory)row.Cells[2].Value;
+                // get sum of all transactions during that time period for that category
+                var filterString = $"Category = {(int)category} AND Date >= '{startDate}' AND Date <= '{endDate}'";
+                DataRow[] transactions = databaseDataSet.Tables["Transaction"].Select(filterString);
+                double balance = (double)row.Cells[3].Value;
+                foreach (var transaction in transactions)
+                {
+                    balance += (double)transaction["Amount"];
+                }
+                // set balance column
+                row.Cells[4].Value = balance;
+                goalGridView.UpdateCellValue(4, row.Index);
+            }
+            goalGridView.ReadOnly = true;
+            goalGridView.Refresh();
         }
     }
 }

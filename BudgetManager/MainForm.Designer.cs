@@ -31,9 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label startDateLabel1;
             System.Windows.Forms.Label endDateLabel1;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mockUpBtn = new System.Windows.Forms.Button();
             this.budgetTab = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -81,6 +82,7 @@
             this.budgetIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.goalCategoryDataGridViewComboBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goalBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.goalDataGridViewSpacer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             startDateLabel1 = new System.Windows.Forms.Label();
             endDateLabel1 = new System.Windows.Forms.Label();
@@ -284,9 +286,9 @@
             // amountDataGridViewTextBoxColumn
             // 
             this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
-            dataGridViewCellStyle31.Format = "C2";
-            dataGridViewCellStyle31.NullValue = "0.00";
-            this.amountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle1.Format = "C2";
+            dataGridViewCellStyle1.NullValue = "0.00";
+            this.amountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
             this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
             this.amountDataGridViewTextBoxColumn.ReadOnly = true;
@@ -294,9 +296,9 @@
             // dateDataGridViewTextBoxColumn
             // 
             this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            dataGridViewCellStyle32.Format = "d";
-            dataGridViewCellStyle32.NullValue = "2017-01-01";
-            this.dateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = "2017-01-01";
+            this.dateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
             this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
             this.dateDataGridViewTextBoxColumn.ReadOnly = true;
@@ -414,6 +416,7 @@
             this.budgetIDDataGridViewTextBoxColumn,
             this.goalCategoryDataGridViewComboBoxColumn,
             this.amountDataGridViewTextBoxColumn1,
+            this.goalBalance,
             this.goalDataGridViewSpacer});
             this.goalGridView.DataSource = this.goalBindingSource;
             this.goalGridView.Location = new System.Drawing.Point(7, 136);
@@ -572,12 +575,21 @@
             // amountDataGridViewTextBoxColumn1
             // 
             this.amountDataGridViewTextBoxColumn1.DataPropertyName = "Amount";
-            dataGridViewCellStyle33.Format = "C2";
-            dataGridViewCellStyle33.NullValue = "0.00";
-            this.amountDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = "0.00";
+            this.amountDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
             this.amountDataGridViewTextBoxColumn1.HeaderText = "Amount";
             this.amountDataGridViewTextBoxColumn1.Name = "amountDataGridViewTextBoxColumn1";
             this.amountDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // goalBalance
+            // 
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = "$0.00";
+            this.goalBalance.DefaultCellStyle = dataGridViewCellStyle4;
+            this.goalBalance.HeaderText = "Balance";
+            this.goalBalance.Name = "goalBalance";
+            this.goalBalance.ReadOnly = true;
             // 
             // goalDataGridViewSpacer
             // 
@@ -664,6 +676,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn budgetIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn goalCategoryDataGridViewComboBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn goalBalance;
         private System.Windows.Forms.DataGridViewTextBoxColumn goalDataGridViewSpacer;
     }
 }

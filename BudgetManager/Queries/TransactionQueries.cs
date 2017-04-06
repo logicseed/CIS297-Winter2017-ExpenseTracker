@@ -65,15 +65,16 @@ namespace BudgetManager
             var transactionsByAccount = GetTransactionsByAccount(accountID);
             foreach(Transaction transactions in transactionsByAccount)
             {
-                if (transactions.Category == Convert.ToInt32(TransactionCategory.Income)
-                    || transactions.Category == Convert.ToInt32(TransactionCategory.CreditCardPayment))
-                {
-                    total += transactions.Amount;
-                }
-                else
-                {
-                    total -= transactions.Amount;
-                }
+                //if (transactions.Category == Convert.ToInt32(TransactionCategory.Income)
+                //    || transactions.Category == Convert.ToInt32(TransactionCategory.CreditCardPayment))
+                //{
+                //    total += transactions.Amount;
+                //}
+                //else
+                //{
+                //    total -= transactions.Amount;
+                //}
+                total += transactions.Amount;
             }
             return total;
         }
