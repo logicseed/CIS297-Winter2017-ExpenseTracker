@@ -199,6 +199,7 @@ namespace BudgetManager
                 goalBindingSource.Filter = "BudgetID = " + budgetID;
                 goalGridView.Refresh();
                 BuildGoalBalanceColumns();
+                CalculateBudgetBalance();
             }
         }
 
@@ -284,6 +285,27 @@ namespace BudgetManager
             }
             goalGridView.ReadOnly = true;
             goalGridView.Refresh();
+        }
+
+        private void CalculateBudgetBalance()
+        {
+            var amount = 0.0;
+            var balance = 0.0;
+
+            foreach (DataGridViewRow row in goalGridView.Rows)
+            {
+                amount += (double)row.Cells[3].Value;
+                balance += (double)row.Cells[4].Value;
+            }
+
+            budgetAmountLabel.Text = amount.ToString("C2");
+            budgetBalanceLabel.Text = balance.ToString("C2");
+        }
+
+        private void budgetManagerTabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshAccountInfo();
+            RefreshBudgetInfo();
         }
     }
 }

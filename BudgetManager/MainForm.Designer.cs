@@ -31,11 +31,11 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label startDateLabel1;
             System.Windows.Forms.Label endDateLabel1;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.budgetTab = new System.Windows.Forms.TabControl();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.budgetManagerTabControl = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.editTransactionButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -61,7 +61,7 @@
             this.budgetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.startDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.endDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.startDateLabel = new System.Windows.Forms.Label();
+            this.budgetBalanceLabel = new System.Windows.Forms.Label();
             this.goalGridView = new System.Windows.Forms.DataGridView();
             this.goalBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.editBudgetButton = new System.Windows.Forms.Button();
@@ -82,9 +82,11 @@
             this.amountDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.goalBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.goalDataGridViewSpacer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.budgetAmountLabel = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             startDateLabel1 = new System.Windows.Forms.Label();
             endDateLabel1 = new System.Windows.Forms.Label();
-            this.budgetTab.SuspendLayout();
+            this.budgetManagerTabControl.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
@@ -114,16 +116,17 @@
             endDateLabel1.TabIndex = 15;
             endDateLabel1.Text = "End Date:";
             // 
-            // budgetTab
+            // budgetManagerTabControl
             // 
-            this.budgetTab.Controls.Add(this.tabPage2);
-            this.budgetTab.Controls.Add(this.tabPage4);
-            this.budgetTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.budgetTab.Location = new System.Drawing.Point(12, 12);
-            this.budgetTab.Name = "budgetTab";
-            this.budgetTab.SelectedIndex = 0;
-            this.budgetTab.Size = new System.Drawing.Size(704, 537);
-            this.budgetTab.TabIndex = 6;
+            this.budgetManagerTabControl.Controls.Add(this.tabPage2);
+            this.budgetManagerTabControl.Controls.Add(this.tabPage4);
+            this.budgetManagerTabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.budgetManagerTabControl.Location = new System.Drawing.Point(12, 12);
+            this.budgetManagerTabControl.Name = "budgetManagerTabControl";
+            this.budgetManagerTabControl.SelectedIndex = 0;
+            this.budgetManagerTabControl.Size = new System.Drawing.Size(704, 537);
+            this.budgetManagerTabControl.TabIndex = 6;
+            this.budgetManagerTabControl.SelectedIndexChanged += new System.EventHandler(this.budgetManagerTabControl_SelectedIndexChanged);
             // 
             // tabPage2
             // 
@@ -271,9 +274,9 @@
             // amountDataGridViewTextBoxColumn
             // 
             this.amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
-            dataGridViewCellStyle9.Format = "C2";
-            dataGridViewCellStyle9.NullValue = "0.00";
-            this.amountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Format = "C2";
+            dataGridViewCellStyle1.NullValue = "0.00";
+            this.amountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.amountDataGridViewTextBoxColumn.HeaderText = "Amount";
             this.amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
             this.amountDataGridViewTextBoxColumn.ReadOnly = true;
@@ -281,9 +284,9 @@
             // dateDataGridViewTextBoxColumn
             // 
             this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            dataGridViewCellStyle10.Format = "d";
-            dataGridViewCellStyle10.NullValue = "2017-01-01";
-            this.dateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = "2017-01-01";
+            this.dateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
             this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
             this.dateDataGridViewTextBoxColumn.ReadOnly = true;
@@ -335,13 +338,15 @@
             // tabPage4
             // 
             this.tabPage4.AutoScroll = true;
+            this.tabPage4.Controls.Add(this.budgetAmountLabel);
+            this.tabPage4.Controls.Add(this.label6);
             this.tabPage4.Controls.Add(this.editGoalButton);
             this.tabPage4.Controls.Add(this.addGoalButton);
             this.tabPage4.Controls.Add(startDateLabel1);
             this.tabPage4.Controls.Add(this.startDateDateTimePicker);
             this.tabPage4.Controls.Add(endDateLabel1);
             this.tabPage4.Controls.Add(this.endDateDateTimePicker);
-            this.tabPage4.Controls.Add(this.startDateLabel);
+            this.tabPage4.Controls.Add(this.budgetBalanceLabel);
             this.tabPage4.Controls.Add(this.goalGridView);
             this.tabPage4.Controls.Add(this.editBudgetButton);
             this.tabPage4.Controls.Add(this.addBudgetButton);
@@ -381,13 +386,13 @@
             this.endDateDateTimePicker.Size = new System.Drawing.Size(109, 22);
             this.endDateDateTimePicker.TabIndex = 16;
             // 
-            // startDateLabel
+            // budgetBalanceLabel
             // 
-            this.startDateLabel.AutoSize = true;
-            this.startDateLabel.Location = new System.Drawing.Point(146, 81);
-            this.startDateLabel.Name = "startDateLabel";
-            this.startDateLabel.Size = new System.Drawing.Size(0, 16);
-            this.startDateLabel.TabIndex = 10;
+            this.budgetBalanceLabel.AutoSize = true;
+            this.budgetBalanceLabel.Location = new System.Drawing.Point(146, 81);
+            this.budgetBalanceLabel.Name = "budgetBalanceLabel";
+            this.budgetBalanceLabel.Size = new System.Drawing.Size(0, 16);
+            this.budgetBalanceLabel.TabIndex = 10;
             // 
             // goalGridView
             // 
@@ -549,18 +554,18 @@
             // amountDataGridViewTextBoxColumn1
             // 
             this.amountDataGridViewTextBoxColumn1.DataPropertyName = "Amount";
-            dataGridViewCellStyle11.Format = "C2";
-            dataGridViewCellStyle11.NullValue = "0.00";
-            this.amountDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = "0.00";
+            this.amountDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
             this.amountDataGridViewTextBoxColumn1.HeaderText = "Amount";
             this.amountDataGridViewTextBoxColumn1.Name = "amountDataGridViewTextBoxColumn1";
             this.amountDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // goalBalance
             // 
-            dataGridViewCellStyle12.Format = "C2";
-            dataGridViewCellStyle12.NullValue = "$0.00";
-            this.goalBalance.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = "$0.00";
+            this.goalBalance.DefaultCellStyle = dataGridViewCellStyle4;
             this.goalBalance.HeaderText = "Balance";
             this.goalBalance.Name = "goalBalance";
             this.goalBalance.ReadOnly = true;
@@ -572,18 +577,36 @@
             this.goalDataGridViewSpacer.Name = "goalDataGridViewSpacer";
             this.goalDataGridViewSpacer.ReadOnly = true;
             // 
+            // budgetAmountLabel
+            // 
+            this.budgetAmountLabel.AutoSize = true;
+            this.budgetAmountLabel.Location = new System.Drawing.Point(146, 56);
+            this.budgetAmountLabel.Name = "budgetAmountLabel";
+            this.budgetAmountLabel.Size = new System.Drawing.Size(0, 16);
+            this.budgetAmountLabel.TabIndex = 20;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(33, 56);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(107, 16);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Budget Balance:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 557);
             this.Controls.Add(this.debugDbEditorButton);
-            this.Controls.Add(this.budgetTab);
+            this.Controls.Add(this.budgetManagerTabControl);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Budget Manager";
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.budgetTab.ResumeLayout(false);
+            this.budgetManagerTabControl.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).EndInit();
@@ -602,7 +625,7 @@
 
         #endregion
         private System.Windows.Forms.Button debugDbEditorButton;
-        private System.Windows.Forms.TabControl budgetTab;
+        private System.Windows.Forms.TabControl budgetManagerTabControl;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button editAccountButton;
         private System.Windows.Forms.Button addAccountButton;
@@ -628,7 +651,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button editTransactionButton;
-        private System.Windows.Forms.Label startDateLabel;
+        private System.Windows.Forms.Label budgetBalanceLabel;
         private System.Windows.Forms.BindingSource budgetBindingSource;
         private DatabaseDataSetTableAdapters.BudgetTableAdapter budgetTableAdapter;
         private System.Windows.Forms.DateTimePicker startDateDateTimePicker;
@@ -648,6 +671,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn goalBalance;
         private System.Windows.Forms.DataGridViewTextBoxColumn goalDataGridViewSpacer;
+        private System.Windows.Forms.Label budgetAmountLabel;
+        private System.Windows.Forms.Label label6;
     }
 }
 
