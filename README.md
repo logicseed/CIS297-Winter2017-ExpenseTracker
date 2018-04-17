@@ -6,7 +6,7 @@
 Introduction to C# - CIS297 Winter 2017
 ======
 >Our team was tasked with creating a simple budget manager that would allow the user to add different
->types of account and add transactions to those accounts, and create budgets and add goals to those
+>types of account and add transactions to those accounts, and create budgets as well as add goals to those
 >budgets. We were constrained to using the Entity Framework with a LocalDB or SQL Server Express.
 
 ### Details
